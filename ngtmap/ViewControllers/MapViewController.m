@@ -13,6 +13,7 @@ const float DEFAULT_LON = 82.916667;
 
 @implementation MapViewController
 
+@synthesize updateTimer;
 @synthesize mapView, updateMapButton;
 @synthesize selectedCar, detailsView, detailsNameLabel, detailsSpeedLabel, detailsTimetableLabel;
 @synthesize transport;
@@ -89,7 +90,7 @@ const float DEFAULT_LON = 82.916667;
 }
 
 - (IBAction)updateTransport:(id)sender
-{    
+{
     self.updateMapButton.imageView.image = [UIImage imageNamed:@"star.png"];
     
     // Очистить

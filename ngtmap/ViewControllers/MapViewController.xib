@@ -3,12 +3,12 @@
 	<data>
 		<int key="IBDocument.SystemTarget">1280</int>
 		<string key="IBDocument.SystemVersion">11D50b</string>
-		<string key="IBDocument.InterfaceBuilderVersion">1938</string>
+		<string key="IBDocument.InterfaceBuilderVersion">2177</string>
 		<string key="IBDocument.AppKitVersion">1138.32</string>
 		<string key="IBDocument.HIToolboxVersion">568.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-			<string key="NS.object.0">933</string>
+			<string key="NS.object.0">1173</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>IBUILabel</string>
@@ -125,7 +125,7 @@
 							<object class="IBUILabel" id="949283719">
 								<reference key="NSNextResponder" ref="982959569"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{9, 15}, {107, 20}}</string>
+								<string key="NSFrame">{{9, 15}, {144, 20}}</string>
 								<reference key="NSSuperview" ref="982959569"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="386345291"/>
@@ -143,6 +143,7 @@
 								<nil key="IBUIHighlightedColor"/>
 								<int key="IBUIBaselineAdjustment">1</int>
 								<float key="IBUIMinimumFontSize">10</float>
+								<int key="IBUILineBreakMode">2</int>
 								<object class="IBUIFontDescription" key="IBUIFontDescription">
 									<int key="type">1</int>
 									<double key="pointSize">16</double>
@@ -199,7 +200,7 @@
 									<bytes key="NSWhite">MC4zMzMzMzMzMzMzAA</bytes>
 								</object>
 								<nil key="IBUIHighlightedColor"/>
-								<int key="IBUIBaselineAdjustment">1</int>
+								<int key="IBUIBaselineAdjustment">0</int>
 								<float key="IBUIMinimumFontSize">9</float>
 								<int key="IBUINumberOfLines">8</int>
 								<object class="IBUIFontDescription" key="IBUIFontDescription">
@@ -241,7 +242,10 @@
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="949283719"/>
 						<string key="NSReuseIdentifierKey">_NS:196</string>
-						<reference key="IBUIBackgroundColor" ref="571632833"/>
+						<object class="NSColor" key="IBUIBackgroundColor">
+							<int key="NSColorSpace">1</int>
+							<bytes key="NSRGB">MSAxIDEAA</bytes>
+						</object>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					</object>
 				</array>
@@ -578,6 +582,6 @@
 			<string key="location.png">{24, 24}</string>
 			<string key="refresh.png">{30, 26}</string>
 		</dictionary>
-		<string key="IBCocoaTouchPluginVersion">933</string>
+		<string key="IBCocoaTouchPluginVersion">1173</string>
 	</data>
 </archive>

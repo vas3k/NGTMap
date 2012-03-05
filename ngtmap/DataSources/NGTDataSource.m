@@ -21,16 +21,21 @@ NSString * const mainUrl = @"http://maps.nskgortrans.ru/";
 {
     if (self = [super init])
     {
-        // Для получения волшебной куки
-        NSURLRequest *cookieRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:mainUrl]
-                                                       cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                                   timeoutInterval:30.0];
-        
-        self.cookieConnection = [[NSURLConnection alloc] initWithRequest:cookieRequest
-                                                                delegate:self
-                                                        startImmediately:YES];
+        [self loadPeriodicalData];
     }
     return self;
+}
+
+- (void)loadPeriodicalData
+{
+    // Для получения волшебной куки
+    NSURLRequest *cookieRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:mainUrl]
+                                                   cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                               timeoutInterval:30.0];
+    
+    self.cookieConnection = [[NSURLConnection alloc] initWithRequest:cookieRequest
+                                                            delegate:self
+                                                    startImmediately:YES];    
 }
 
 - (void)loadTransportDataTo:(id)callbackObject

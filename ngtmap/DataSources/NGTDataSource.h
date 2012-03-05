@@ -28,6 +28,7 @@
 @property (nonatomic,retain) NSMutableData *receivedCarsData;
 
 - (void)loadTransportDataTo:(id)callbackObject;
+- (void)loadPeriodicalData;
 - (NSArray *)getCarsForTransport:(Transport *)transport;
 - (void)getCarsForTransport:(Transport *)transport to:(id)callbackObject;
 

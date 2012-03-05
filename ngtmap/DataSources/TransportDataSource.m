@@ -23,6 +23,10 @@
     return self;
 }
 
+- (void)loadPeriodicalData
+{
+}
+
 - (NSInteger)numberOfSections
 {
     return 1;

@@ -22,6 +22,7 @@
 @property (nonatomic, retain) NSMutableArray *filteredTransportList;
 
 - (void)loadTransportDataTo:(id)callbackObject;
+- (void)loadPeriodicalData;
 - (NSArray *)getCarsForTransport:(Transport *)transport;
 - (void)getCarsForTransport:(Transport *)transport to:(id)callbackObject;
 

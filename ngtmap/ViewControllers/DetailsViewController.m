@@ -72,8 +72,8 @@ typedef enum { SectionHeader, SectionButtons, SectionTimetable } Sections;
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+    [self.transport.cars release];
+    [self.transport release];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

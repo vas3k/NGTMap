@@ -179,6 +179,13 @@
 			name = InfoViewController;
 			sourceTree = "<group>";
 		};
+		7363BC8214FA9EC0004487A8 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = iPad;
+			sourceTree = "<group>";
+		};
 		736C003314E81351005D6503 = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +231,7 @@
 				736C006E14E81A39005D6503 /* MapViewController */,
 				739008BF14E8EF20009A6D0D /* DataClasses */,
 				739008C314E8EF8F009A6D0D /* DataSources */,
+				7363BC8214FA9EC0004487A8 /* iPad */,
 			);
 			path = ngtmap;
 			sourceTree = "<group>";
@@ -526,6 +534,7 @@
 				GCC_WARN_UNUSED_VALUE = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
 				INFOPLIST_FILE = "ngtmap/ngtmap-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "FF6F0483-EC49-46C3-8746-20578D4F6984";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "FF6F0483-EC49-46C3-8746-20578D4F6984";
@@ -544,6 +553,7 @@
 				GCC_WARN_UNUSED_VALUE = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
 				INFOPLIST_FILE = "ngtmap/ngtmap-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "FF6F0483-EC49-46C3-8746-20578D4F6984";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "FF6F0483-EC49-46C3-8746-20578D4F6984";

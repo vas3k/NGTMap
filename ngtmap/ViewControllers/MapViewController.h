@@ -14,6 +14,8 @@
 
 @interface MapViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate>
 
+@property (nonatomic, retain) NSTimer *updateTimer;
+
 @property (nonatomic, retain) IBOutlet MKMapView *mapView;
 @property (nonatomic, retain) IBOutlet UIButton *updateMapButton;
 @property (nonatomic, retain) NSMutableArray *transport;
