@@ -35,4 +35,7 @@
 - (IBAction)updateTransport:(id)sender;
 - (IBAction)updateLocation:(id)sender;
 
+- (void)carsLoaded;
+- (void)carsLoadError;
+
 @end

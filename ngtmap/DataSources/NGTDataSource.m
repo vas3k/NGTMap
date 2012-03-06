@@ -278,6 +278,14 @@ NSString * const mainUrl = @"http://maps.nskgortrans.ru/";
         transportLoadObject = nil;
         [self.transportConnection release];
     }
+    
+    if (connection == self.carsConnection)
+    {
+        carsLoadTransportObject = nil;
+        [carsLoadObject carsLoadError];
+        carsLoadObject = nil;
+        [self.carsConnection release];        
+    }
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection 

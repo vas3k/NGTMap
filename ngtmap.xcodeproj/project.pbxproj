@@ -59,6 +59,7 @@
 		73AE1A3214F4BBDE0086D406 /* Bus_arrow-225.png in Resources */ = {isa = PBXBuildFile; fileRef = 73AE1A2A14F4BBDE0086D406 /* Bus_arrow-225.png */; };
 		73AE1A3314F4BBDE0086D406 /* Bus_arrow-270.png in Resources */ = {isa = PBXBuildFile; fileRef = 73AE1A2B14F4BBDE0086D406 /* Bus_arrow-270.png */; };
 		73AE1A3414F4BBDE0086D406 /* Bus_arrow-315.png in Resources */ = {isa = PBXBuildFile; fileRef = 73AE1A2C14F4BBDE0086D406 /* Bus_arrow-315.png */; };
+		73F79D0E150508BD00D6CFF9 /* wait.gif in Resources */ = {isa = PBXBuildFile; fileRef = 73F79D0D150508BD00D6CFF9 /* wait.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -129,6 +130,7 @@
 		73AE1A2A14F4BBDE0086D406 /* Bus_arrow-225.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Bus_arrow-225.png"; path = "Images/icons/bus/Bus_arrow-225.png"; sourceTree = "<group>"; };
 		73AE1A2B14F4BBDE0086D406 /* Bus_arrow-270.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Bus_arrow-270.png"; path = "Images/icons/bus/Bus_arrow-270.png"; sourceTree = "<group>"; };
 		73AE1A2C14F4BBDE0086D406 /* Bus_arrow-315.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Bus_arrow-315.png"; path = "Images/icons/bus/Bus_arrow-315.png"; sourceTree = "<group>"; };
+		73F79D0D150508BD00D6CFF9 /* wait.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = wait.gif; path = Images/icons/wait.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -316,6 +318,7 @@
 		739008D114E95060009A6D0D /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				73F79D0D150508BD00D6CFF9 /* wait.gif */,
 				733B0FB414F134BE004E01BD /* Bus_arrow.png */,
 				733B0FAA14F121A5004E01BD /* info.png */,
 				733B0FA214F0DF0B004E01BD /* button_bg.png */,
@@ -441,6 +444,7 @@
 				73AE1A3214F4BBDE0086D406 /* Bus_arrow-225.png in Resources */,
 				73AE1A3314F4BBDE0086D406 /* Bus_arrow-270.png in Resources */,
 				73AE1A3414F4BBDE0086D406 /* Bus_arrow-315.png in Resources */,
+				73F79D0E150508BD00D6CFF9 /* wait.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

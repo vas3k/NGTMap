@@ -18,6 +18,7 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil transport:(Transport *)newTransport;
 - (void)carsLoaded;
+- (void)carsLoadError;
 
 - (IBAction)showTransportOnMap:(id)sender;
 - (IBAction)addToFavorites:(id)sender;

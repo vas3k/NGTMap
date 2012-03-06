@@ -49,6 +49,17 @@ typedef enum { SectionHeader, SectionButtons, SectionTimetable } Sections;
     [(UITableView *)self.view reloadData];
 }
 
+- (void)carsLoadError
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ой" 
+                                                    message:@"Проблема при загрузке данных об остановках этого транспорта. Извините :(" 
+                                                   delegate:self 
+                                          cancelButtonTitle:@"Да все ок" 
+                                          otherButtonTitles:nil];
+    [alert show];
+    [alert release];       
+}
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad

@@ -24,7 +24,7 @@ const float DEFAULT_LON = 82.916667;
     self = [self initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         [self.transport addObject:newTransport];
-        [newTransport loadCars];
+        [self updateTransport:self];
     }
     return self;
 }
@@ -40,37 +40,15 @@ const float DEFAULT_LON = 82.916667;
 
 - (void)didReceiveMemoryWarning
 {
-    // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
 }
 
 - (void)addTransport:(Transport *)newTransport
 {
     if (![self.transport containsObject:newTransport])
     {
-        if ([newTransport loadCars]) 
-        {        
-            [self.transport addObject:newTransport];
-            
-            // Отобразить заново
-            [self.mapView removeAnnotations:mapView.annotations];
-            for (Transport* trans in self.transport)
-            {
-                [self.mapView addAnnotations:trans.cars];
-            }
-        }
-        else
-        {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ой" 
-                                                            message:@"Проблема при загрузке данных о расположении этого транспорта. Извините :(" 
-                                                           delegate:self 
-                                                  cancelButtonTitle:@"Да все нормально, не расстраивайся" 
-                                                  otherButtonTitles:nil];
-            [alert show];
-            [alert release];
-        }
+        [self.transport addObject:newTransport];
+        [self updateTransport:self];
     }
 }
 
@@ -91,17 +69,28 @@ const float DEFAULT_LON = 82.916667;
 
 - (IBAction)updateTransport:(id)sender
 {
-    self.updateMapButton.imageView.image = [UIImage imageNamed:@"star.png"];
+    if ([self.transport count] < 1) 
+    {
+        return;
+    }
+    
+    [self.updateMapButton setEnabled:NO];
     
     // Очистить
     [self.mapView removeAnnotations:mapView.annotations];
+    [self.updateTimer invalidate];
     
     // Загрузить
     for (Transport* trans in self.transport)
     {
-        [trans loadCars];
+        [trans loadCarsTo:self];
     }
     
+    // Дальше все отобразит метод carsLoaded (асинхронно, после загрузки)
+}
+
+- (void)carsLoaded
+{            
     // Отобразить заново
     for (Transport* trans in self.transport)
     {
@@ -109,7 +98,25 @@ const float DEFAULT_LON = 82.916667;
     }    
     [self.mapView setShowsUserLocation:YES];
     
-    self.updateMapButton.imageView.image = [UIImage imageNamed:@"refresh.png"];
+    [self.updateMapButton setEnabled:YES];
+    
+    self.updateTimer = [NSTimer scheduledTimerWithTimeInterval:30.0 
+                                               target:self 
+                                             selector:@selector(updateTransport:) 
+                                             userInfo:nil 
+                                              repeats:YES];
+}
+
+- (void)carsLoadError
+{
+    [self.updateMapButton setEnabled:YES];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ой" 
+                                                    message:@"Проблема при загрузке данных о расположении этого транспорта. Извините :(" 
+                                                   delegate:self 
+                                          cancelButtonTitle:@"Да все нормально, не расстраивайся" 
+                                          otherButtonTitles:nil];
+    [alert show];
+    [alert release];    
 }
 
 - (IBAction)updateLocation:(id)sender
@@ -131,6 +138,8 @@ const float DEFAULT_LON = 82.916667;
 {
     [self.locationManager stopUpdatingLocation];
     [self.locationManager release];
+    [self.updateTimer invalidate];
+    [self.updateTimer release];
     [super dealloc];
 }
 
@@ -161,8 +170,6 @@ const float DEFAULT_LON = 82.916667;
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -197,11 +204,14 @@ const float DEFAULT_LON = 82.916667;
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
-    self.selectedCar = (Car *)view.annotation;
-    self.detailsNameLabel.text = [[NSString stringWithFormat:@"%@ №%@", self.selectedCar.transport.canonicalType, self.selectedCar.transport.number] capitalizedString];
-    self.detailsTimetableLabel.text = [[self.selectedCar.timetable stringByReplacingOccurrencesOfString:@"|" withString:@"\n"] stringByReplacingOccurrencesOfString:@"+" withString:@" "];
-    self.detailsSpeedLabel.text = [NSString stringWithFormat:@"Скорость: %@ км/ч", self.selectedCar.speed];
-    [self.detailsView setHidden:NO];
+    if ([view.annotation isKindOfClass:Car.class])
+    {    
+        self.selectedCar = (Car *)view.annotation;
+        self.detailsNameLabel.text = [[NSString stringWithFormat:@"%@ №%@", self.selectedCar.transport.canonicalType, self.selectedCar.transport.number] capitalizedString];
+        self.detailsTimetableLabel.text = [[self.selectedCar.timetable stringByReplacingOccurrencesOfString:@"|" withString:@"\n"] stringByReplacingOccurrencesOfString:@"+" withString:@" "];
+        self.detailsSpeedLabel.text = [NSString stringWithFormat:@"Скорость: %@ км/ч", self.selectedCar.speed];
+        [self.detailsView setHidden:NO];
+    }
 }
 
 - (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view
