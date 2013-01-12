@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <StoreKit/StoreKit.h>
 
-@interface InfoViewController : UIViewController
+@interface InfoViewController : UIViewController <SKProductsRequestDelegate> {
+    SKProduct *proUpgradeProduct;
+    SKProductsRequest *productsRequest;
+}
 
 - (IBAction)hideMe;
+- (IBAction)donate:(id)sender;
 
 @end

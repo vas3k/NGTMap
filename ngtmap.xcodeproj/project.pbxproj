@@ -44,6 +44,8 @@
 		736C007214E82D3D005D6503 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 736C007114E82D3C005D6503 /* MapKit.framework */; };
 		736C007614E83E69005D6503 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 736C007414E83E69005D6503 /* FavoritesViewController.m */; };
 		736C007714E83E69005D6503 /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736C007514E83E69005D6503 /* FavoritesViewController.xib */; };
+		738CA1AA1616B42200A5B358 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 738CA1A91616B42200A5B358 /* Default-568h@2x.png */; };
+		738F7CDD1622AF430024457A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 738F7CDC1622AF420024457A /* StoreKit.framework */; };
 		739008BE14E8EF1B009A6D0D /* Transport.m in Sources */ = {isa = PBXBuildFile; fileRef = 739008BD14E8EF1B009A6D0D /* Transport.m */; };
 		739008C214E8EF8B009A6D0D /* NGTDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 739008C114E8EF8B009A6D0D /* NGTDataSource.m */; };
 		739008C614E8F5B7009A6D0D /* TransportDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 739008C514E8F5B7009A6D0D /* TransportDataSource.m */; };
@@ -110,6 +112,8 @@
 		736C007314E83E69005D6503 /* FavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FavoritesViewController.h; path = ngtmap/ViewControllers/FavoritesViewController.h; sourceTree = "<group>"; };
 		736C007414E83E69005D6503 /* FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FavoritesViewController.m; path = ngtmap/ViewControllers/FavoritesViewController.m; sourceTree = "<group>"; };
 		736C007514E83E69005D6503 /* FavoritesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FavoritesViewController.xib; path = ngtmap/ViewControllers/FavoritesViewController.xib; sourceTree = "<group>"; };
+		738CA1A91616B42200A5B358 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
+		738F7CDC1622AF420024457A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		739008BC14E8EF1A009A6D0D /* Transport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Transport.h; path = DataClasses/Transport.h; sourceTree = "<group>"; };
 		739008BD14E8EF1B009A6D0D /* Transport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Transport.m; path = DataClasses/Transport.m; sourceTree = "<group>"; };
 		739008C014E8EF8B009A6D0D /* NGTDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGTDataSource.h; path = DataSources/NGTDataSource.h; sourceTree = "<group>"; };
@@ -138,6 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				738F7CDD1622AF430024457A /* StoreKit.framework in Frameworks */,
 				733B0F8B14F021BF004E01BD /* SystemConfiguration.framework in Frameworks */,
 				7310584514ECEF6E00F984A8 /* CoreLocation.framework in Frameworks */,
 				736C007214E82D3D005D6503 /* MapKit.framework in Frameworks */,
@@ -167,6 +172,7 @@
 				733B0F9214F0463B004E01BD /* icon114.png */,
 				733B0F9014F045FF004E01BD /* Default.png */,
 				733B0F8E14F045FB004E01BD /* Default@2x.png */,
+				738CA1A91616B42200A5B358 /* Default-568h@2x.png */,
 			);
 			name = Media;
 			sourceTree = "<group>";
@@ -208,6 +214,7 @@
 		736C004114E81351005D6503 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				738F7CDC1622AF420024457A /* StoreKit.framework */,
 				733B0F8A14F021BE004E01BD /* SystemConfiguration.framework */,
 				7310584414ECEF6E00F984A8 /* CoreLocation.framework */,
 				736C007114E82D3C005D6503 /* MapKit.framework */,
@@ -445,6 +452,7 @@
 				73AE1A3314F4BBDE0086D406 /* Bus_arrow-270.png in Resources */,
 				73AE1A3414F4BBDE0086D406 /* Bus_arrow-315.png in Resources */,
 				73F79D0E150508BD00D6CFF9 /* wait.gif in Resources */,
+				738CA1AA1616B42200A5B358 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -531,8 +539,8 @@
 		736C005D14E81355005D6503 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Vasily Zubarev";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Vasily Zubarev";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Vasily Zubarev (NH6LH28CRT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vasily Zubarev (NH6LH28CRT)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ngtmap/ngtmap-Prefix.pch";
 				GCC_WARN_UNUSED_VALUE = NO;
@@ -540,9 +548,10 @@
 				INFOPLIST_FILE = "ngtmap/ngtmap-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "FF6F0483-EC49-46C3-8746-20578D4F6984";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "FF6F0483-EC49-46C3-8746-20578D4F6984";
+				PROVISIONING_PROFILE = "B217E2CD-8340-4949-862D-AE5A1C99FE24";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B217E2CD-8340-4949-862D-AE5A1C99FE24";
 				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -559,9 +568,10 @@
 				INFOPLIST_FILE = "ngtmap/ngtmap-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "FF6F0483-EC49-46C3-8746-20578D4F6984";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "FF6F0483-EC49-46C3-8746-20578D4F6984";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
