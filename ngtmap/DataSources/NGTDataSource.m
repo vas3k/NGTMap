@@ -15,7 +15,7 @@ NSString * const mainUrl = @"http://maps.nskgortrans.ru/";
 
 @implementation NGTDataSource
 
-@synthesize cookieConnection, transportConnection, carsConnection, receivedTransportData, receivedCarsData, trassesConnection, receivedTrassesData, receivedRoutesData;
+@synthesize cookieConnection, transportConnection, carsConnection, receivedTransportData, receivedCarsData, trassesConnection, receivedTrassesData, receivedRoutesData, routesConnection;
 @synthesize magicCookie;
 @synthesize carsLoadObject, trassesLoadObject, routesLoadObject, transportLoadObject;
 

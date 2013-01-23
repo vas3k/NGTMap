@@ -13,16 +13,21 @@
 @synthesize searchViewController = _searchViewController;
 @synthesize mapViewController = _mapViewController;
 @synthesize favoritesViewController = _favoritesViewController;
+@synthesize routesViewController = _routesViewController;
 
 - (id)init
 {
     if (self == [super init])
     {
-        // Настройка рюшечек
-        [[UITabBar appearance] setTintColor:[UIColor colorWithRed:0.26 green:0.25 blue:0.24 alpha:1.0]];
-        [[UITabBar appearance] setSelectedImageTintColor:[UIColor colorWithRed:0.98 green:0.49 blue:0.25 alpha:1.0]];
-        [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:0.38 green:0.66 blue:0.59 alpha:1.0]];
-        [[UISearchBar appearance] setTintColor:[UIColor colorWithRed:0.38 green:0.66 blue:0.59 alpha:1.0]];
+        float version = [[[UIDevice currentDevice] systemVersion] floatValue];
+        if (version >= 5.0) //following code available on iOS 5.0 and above, but I have old iPod 2gen with iOS 4.2..
+        {
+            // Настройка рюшечек
+            [[UITabBar appearance] setTintColor:[UIColor colorWithRed:0.26 green:0.25 blue:0.24 alpha:1.0]];
+            [[UITabBar appearance] setSelectedImageTintColor:[UIColor colorWithRed:0.98 green:0.49 blue:0.25 alpha:1.0]];
+            [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:0.38 green:0.66 blue:0.59 alpha:1.0]];
+            [[UISearchBar appearance] setTintColor:[UIColor colorWithRed:0.38 green:0.66 blue:0.59 alpha:1.0]];
+        }
     }
     return self;
 }

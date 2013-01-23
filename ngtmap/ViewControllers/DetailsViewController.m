@@ -102,13 +102,17 @@ typedef enum { SectionHeader, SectionButtons, SectionTimetable } Sections;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Разукрасим кнопочки
-    UIImage *resizableGreenButton = [[UIImage imageNamed:@"button_green.png" ] resizableImageWithCapInsets:UIEdgeInsetsMake(15, 5, 15, 5)];
-    UIImage *resizableGreenButtonHighlighted = [[UIImage imageNamed:@"button_green_press.png" ] resizableImageWithCapInsets:UIEdgeInsetsMake(15, 5, 15, 5)];
-    [self.addToMapButton setBackgroundImage:resizableGreenButton forState:UIControlStateNormal];
-    [self.addToMapButton setBackgroundImage:resizableGreenButtonHighlighted forState:UIControlStateHighlighted];
-    [self.favoritesButton setBackgroundImage:resizableGreenButton forState:UIControlStateNormal];
-    [self.favoritesButton setBackgroundImage:resizableGreenButtonHighlighted forState:UIControlStateHighlighted];
+    
+    float version = [[[UIDevice currentDevice] systemVersion] floatValue];
+    if (version >= 5.0) {
+        // Разукрасим кнопочки
+        UIImage *resizableGreenButton = [[UIImage imageNamed:@"button_green.png" ] resizableImageWithCapInsets:UIEdgeInsetsMake(15, 5, 15, 5)];
+        UIImage *resizableGreenButtonHighlighted = [[UIImage imageNamed:@"button_green_press.png" ] resizableImageWithCapInsets:UIEdgeInsetsMake(15, 5, 15, 5)];
+        [self.addToMapButton setBackgroundImage:resizableGreenButton forState:UIControlStateNormal];
+        [self.addToMapButton setBackgroundImage:resizableGreenButtonHighlighted forState:UIControlStateHighlighted];
+        [self.favoritesButton setBackgroundImage:resizableGreenButton forState:UIControlStateNormal];
+        [self.favoritesButton setBackgroundImage:resizableGreenButtonHighlighted forState:UIControlStateHighlighted];
+    }
     
     if (self.transport)
     {

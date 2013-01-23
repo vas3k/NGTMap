@@ -69,10 +69,13 @@
         [annot release];
     }    
     
-    UIImage *resizableYellowButton = [[UIImage imageNamed:@"button_yellow.png" ] resizableImageWithCapInsets:UIEdgeInsetsMake(15, 5, 15, 5)];
-    UIImage *resizableYellowButtonHighlighted = [[UIImage imageNamed:@"button_yellow_press.png" ] resizableImageWithCapInsets:UIEdgeInsetsMake(15, 5, 15, 5)];
-    [self.okButton setBackgroundImage:resizableYellowButton forState:UIControlStateNormal];
-    [self.okButton setBackgroundImage:resizableYellowButtonHighlighted forState:UIControlStateHighlighted];
+    float version = [[[UIDevice currentDevice] systemVersion] floatValue];
+    if (version >= 5.0){
+        UIImage *resizableYellowButton = [[UIImage imageNamed:@"button_yellow.png" ] resizableImageWithCapInsets:UIEdgeInsetsMake(15, 5, 15, 5)];
+        UIImage *resizableYellowButtonHighlighted = [[UIImage imageNamed:@"button_yellow_press.png" ] resizableImageWithCapInsets:UIEdgeInsetsMake(15, 5, 15, 5)];
+        [self.okButton setBackgroundImage:resizableYellowButton forState:UIControlStateNormal];
+        [self.okButton setBackgroundImage:resizableYellowButtonHighlighted forState:UIControlStateHighlighted];
+    }
 }
 
 - (void)didReceiveMemoryWarning
