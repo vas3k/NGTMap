@@ -2,8 +2,7 @@
 //  SearchViewController.m
 //  ngtmap
 //
-//  Created by Vasily Zubarev on 12.02.12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Created by vas3k on 12.02.12.
 //
 
 #import "SearchViewController.h"
@@ -29,7 +28,7 @@
         
         // Кнопочка инфо
         UIBarButtonItem *infoButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"info.png"] 
-                                                                       style:UIBarButtonItemStyleBordered 
+                                                                       style:UIBarButtonItemStyleBordered
                                                                       target:self 
                                                                       action:@selector(showInfoController)];
         self.navigationItem.rightBarButtonItem = infoButton;
@@ -134,6 +133,10 @@
     return [self.transportDataSource numberOfRowsInSection:section isFiltered:filtered];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 55;
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {

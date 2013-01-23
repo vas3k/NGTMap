@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[MapViewController carsLoaded]:MapViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "tans.cars">
+            </PersistentString>
+            <PersistentString
+               value = "self.mapView.annotations">
+            </PersistentString>
+            <PersistentString
+               value = "self.mapView.overlays">
+            </PersistentString>
+            <PersistentString
+               value = "self.transport">
+            </PersistentString>
+            <PersistentString
+               value = "self.route">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[MapViewController showRoute:]:MapViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "mapView">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

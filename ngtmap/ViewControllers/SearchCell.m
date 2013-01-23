@@ -2,8 +2,7 @@
 //  SearchCell.m
 //  ngtmap
 //
-//  Created by Vasily Zubarev on 13.02.12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Created by vas3k on 12.02.12.
 //
 
 #import "SearchCell.h"
@@ -11,16 +10,22 @@
 
 @implementation SearchCell
 
-@synthesize trans, icon, numberLabel, typeLabel, stopALabel, stopBLabel, favoritesButton;
+@synthesize trans, icon, numberLabel, stopALabel, favoritesButton;
 
 - (void)fillWithTransport:(Transport *)transport
 {
+    // Установка кастомного бекграунда
+    UIImageView *av = [[[UIImageView alloc] initWithFrame:CGRectMake(1, 1, 1, 1)] autorelease];
+    av.backgroundColor = [UIColor clearColor];
+    av.opaque = NO;
+    av.image = [UIImage imageNamed:@"bg_search_cell.png"];
+    self.backgroundView = av;
+    
+    // Заполнение инфы
     self.trans = transport;
     self.icon.image = transport.icon;
-    self.numberLabel.text =  transport.number;
-    self.typeLabel.text =  transport.canonicalType;
-    self.stopALabel.text = transport.stopA;
-    self.stopBLabel.text = transport.stopB;
+    self.numberLabel.text =  [NSString stringWithFormat:@"%@ %@", transport.number, transport.canonicalType];
+    self.stopALabel.text = [NSString stringWithFormat:@"%@ — %@", transport.stopA, transport.stopB];
     [self.favoritesButton setHidden:(!transport.inFavorites)];
 }
 

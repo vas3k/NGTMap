@@ -1,9 +1,8 @@
-        //
+//
 //  main.m
 //  ngtmap
 //
-//  Created by Vasily Zubarev on 12.02.12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Created by vas3k on 12.02.12.
 //
 
 #import <UIKit/UIKit.h>

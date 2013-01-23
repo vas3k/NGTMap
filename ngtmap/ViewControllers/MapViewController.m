@@ -2,8 +2,7 @@
 //  MapViewController.m
 //  ngtmap
 //
-//  Created by Vasily Zubarev on 12.02.12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Created by vas3k on 12.02.12.
 //
 
 #import "MapViewController.h"
@@ -13,11 +12,12 @@ const float DEFAULT_LON = 82.916667;
 
 @implementation MapViewController
 
-@synthesize updateTimer;
+@synthesize updateTimer, route;
 @synthesize mapView, updateMapButton;
 @synthesize selectedCar, detailsView, detailsNameLabel, detailsSpeedLabel, detailsTimetableLabel;
 @synthesize transport;
 @synthesize locationManager;
+@synthesize refreshButton, locationButton, removeRouteButton, deleteTransportButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil transport:(Transport *)newTransport
 {
@@ -45,17 +45,45 @@ const float DEFAULT_LON = 82.916667;
 
 - (void)addTransport:(Transport *)newTransport
 {
+    if (self.route)
+    {
+        [self clearRoute:self];
+    }
+    
     if (![self.transport containsObject:newTransport])
     {
         [self.transport addObject:newTransport];
         [self updateTransport:self];
     }
+    
+    // Правильно зумим карту, чтобы все влезли    
+    [self.mapView setRegion:MKCoordinateRegionMake(CLLocationCoordinate2DMake(DEFAULT_LAT, DEFAULT_LON), MKCoordinateSpanMake(0.3, 0.3))];
+    
+    MKMapRect zoomRect = MKMapRectNull;
+    for (Transport *trans in self.transport)
+    {
+        for (id <MKAnnotation> annotation in trans.cars)
+        {
+            MKMapPoint annotationPoint = MKMapPointForCoordinate(annotation.coordinate);
+            MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0.1, 0.1);
+            if (MKMapRectIsNull(zoomRect))
+            {
+                zoomRect = pointRect;
+            }
+            else
+            {
+                zoomRect = MKMapRectUnion(zoomRect, pointRect);
+            }
+        }
+    }
+    [self.mapView setVisibleMapRect:zoomRect animated:YES];
 }
 
 - (void)removeTransport:(Transport *)oldTransport
 {
     if ([self.transport containsObject:oldTransport])
     {
+        [self.mapView removeOverlay:oldTransport.routeLine];
         [self.transport removeObject:oldTransport];
         
         // Отобразить заново
@@ -77,6 +105,7 @@ const float DEFAULT_LON = 82.916667;
     [self.updateMapButton setEnabled:NO];
     
     // Очистить
+    [self.mapView removeOverlays:mapView.overlays];
     [self.mapView removeAnnotations:mapView.annotations];
     [self.updateTimer invalidate];
     
@@ -89,18 +118,77 @@ const float DEFAULT_LON = 82.916667;
     // Дальше все отобразит метод carsLoaded (асинхронно, после загрузки)
 }
 
+- (void)addRoute:(Route *)newRoute
+{    
+    self.route = newRoute;
+    
+    [self.mapView removeOverlays:self.mapView.overlays];
+    [self.mapView removeAnnotations:self.mapView.annotations];
+    [self.transport removeAllObjects];
+    [self.transport addObjectsFromArray:newRoute.transport];
+    [self.updateTimer invalidate];
+    [self.removeRouteButton setHidden:NO];
+    [self showRoute];
+}
+
+- (void)showRoute
+{    
+    // Добавим остановки и пересадки
+    for (Transport *trans in self.route.transport)
+    {
+        MKPointAnnotation *startAnnot = [[MKPointAnnotation alloc] init];
+        startAnnot.coordinate = trans.stopACoordinates;
+        startAnnot.title = trans.stopA;
+        [self.mapView addAnnotation:startAnnot];
+        [startAnnot release];
+        
+        MKPointAnnotation *stopAnnot = [[MKPointAnnotation alloc] init];
+        stopAnnot.coordinate = trans.stopBCoordinates;
+        stopAnnot.title = trans.stopB;
+        [self.mapView addAnnotation:stopAnnot];
+        [stopAnnot release];
+    }
+    
+    // Добавим линию
+    [self.mapView addOverlays:self.route.polylines];
+    
+    // Зумим карту
+    MKMapRect mapRect = MKMapRectNull;
+    mapRect = ((id<MKOverlay>)self.mapView.overlays.lastObject).boundingMapRect;
+    
+    //Inset
+    CGFloat inset = (CGFloat)(mapRect.size.width * 0.1);
+    mapRect = [self.mapView mapRectThatFits:MKMapRectInset(mapRect, inset, inset)];
+    
+    //Set
+    MKCoordinateRegion region = MKCoordinateRegionForMapRect(mapRect);
+    [self.mapView setRegion:region animated:YES];    
+}
+
 - (void)carsLoaded
-{            
+{
+    if (self.route != nil)
+    {
+        [self showRoute];
+    }
+    
     // Отобразить заново
     for (Transport* trans in self.transport)
     {
         [self.mapView addAnnotations:trans.cars];
-    }    
+//        NSLog(@"SHOW TRANSPORT: %@, cars: %@", trans, trans.cars);
+        if (trans.routeLine != nil)
+            [self.mapView addOverlay:trans.routeLine];
+        
+    }
+    
+    
     [self.mapView setShowsUserLocation:YES];
     
+    // Ну и контролы
     [self.updateMapButton setEnabled:YES];
     
-    self.updateTimer = [NSTimer scheduledTimerWithTimeInterval:30.0 
+    self.updateTimer = [NSTimer scheduledTimerWithTimeInterval:60.0
                                                target:self 
                                              selector:@selector(updateTransport:) 
                                              userInfo:nil 
@@ -110,13 +198,27 @@ const float DEFAULT_LON = 82.916667;
 - (void)carsLoadError
 {
     [self.updateMapButton setEnabled:YES];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ой" 
-                                                    message:@"Проблема при загрузке данных о расположении этого транспорта. Извините :(" 
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" 
+                                                    message:@"Проблема при загрузке данных. Извините :(" 
                                                    delegate:self 
                                           cancelButtonTitle:@"Да все нормально, не расстраивайся" 
                                           otherButtonTitles:nil];
     [alert show];
     [alert release];    
+}
+
+
+- (IBAction)clearRoute:(id)sender
+{
+    if (self.route)
+    {
+        [self.mapView removeOverlays:self.route.polylines];
+        [self.route release];
+    }
+    self.route = nil;
+    [self.removeRouteButton setHidden:YES];
+    [self.mapView removeAnnotations:self.mapView.annotations];
+    [self updateTransport:self];
 }
 
 - (IBAction)updateLocation:(id)sender
@@ -136,10 +238,14 @@ const float DEFAULT_LON = 82.916667;
 
 - (void)dealloc
 {
+    self.mapView.delegate = nil;
+    [self.refreshButton release];
+    [self.locationButton release];
     [self.locationManager stopUpdatingLocation];
     [self.locationManager release];
     [self.updateTimer invalidate];
     [self.updateTimer release];
+    [self.route release];
     [super dealloc];
 }
 
@@ -165,6 +271,21 @@ const float DEFAULT_LON = 82.916667;
         [self.mapView addAnnotations:trans.cars];
     }
     [self.mapView setShowsUserLocation:YES];
+    
+    UIImage *resizableGreenButton = [[UIImage imageNamed:@"button_green.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(15, 5, 15, 5)];
+    UIImage *resizableGreenButtonHighlighted = [[UIImage imageNamed:@"button_green_press.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(15, 5, 15, 5)];
+    [self.refreshButton setBackgroundImage:resizableGreenButton forState:UIControlStateNormal];
+    [self.refreshButton setBackgroundImage:resizableGreenButtonHighlighted forState:UIControlStateHighlighted];
+    [self.locationButton setBackgroundImage:resizableGreenButton forState:UIControlStateNormal];
+    [self.locationButton setBackgroundImage:resizableGreenButtonHighlighted forState:UIControlStateHighlighted];
+    [self.removeRouteButton setBackgroundImage:resizableGreenButton forState:UIControlStateNormal];
+    [self.removeRouteButton setBackgroundImage:resizableGreenButtonHighlighted forState:UIControlStateHighlighted];
+    [self.removeRouteButton setHidden:YES];
+    
+    UIImage *resizableYellowButton = [[UIImage imageNamed:@"button_yellow.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(15, 5, 15, 5)];
+    UIImage *resizableYellowButtonHighlighted = [[UIImage imageNamed:@"button_yellow_press.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(15, 5, 15, 5)];
+    [self.deleteTransportButton setBackgroundImage:resizableYellowButton forState:UIControlStateNormal];
+    [self.deleteTransportButton setBackgroundImage:resizableYellowButtonHighlighted forState:UIControlStateHighlighted];
 }
 
 - (void)viewDidUnload
@@ -199,13 +320,27 @@ const float DEFAULT_LON = 82.916667;
         
         return annotationView;
     }
+    
+    if (![annotation isKindOfClass:[MKUserLocation class]])
+    {
+        // Для всех остальных аннотаций - простой пин
+        MKPinAnnotationView *annView = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"defaultPin"];
+        if(!annView){
+            annView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"defaultPin"];
+        }
+        
+        annView.animatesDrop = YES;
+        annView.canShowCallout = YES;
+        return annView;
+    }
+    
     return nil;
 }
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
-    if ([view.annotation isKindOfClass:Car.class])
-    {    
+    if ([view.annotation isKindOfClass:[Car class]])
+    {
         self.selectedCar = (Car *)view.annotation;
         self.detailsNameLabel.text = [[NSString stringWithFormat:@"%@ №%@", self.selectedCar.transport.canonicalType, self.selectedCar.transport.number] capitalizedString];
         self.detailsTimetableLabel.text = [[self.selectedCar.timetable stringByReplacingOccurrencesOfString:@"|" withString:@"\n"] stringByReplacingOccurrencesOfString:@"+" withString:@" "];
@@ -219,6 +354,35 @@ const float DEFAULT_LON = 82.916667;
     self.selectedCar = nil;
     [self.detailsView setHidden:YES];
 }
+
+
+- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id <MKOverlay>)overlay
+{
+    NSArray *okColors = [NSArray arrayWithObjects:
+                            [UIColor colorWithRed:0.38 green:0.66 blue:0.59 alpha:1.0],
+                            [UIColor colorWithRed:0.98 green:0.49 blue:0.25 alpha:1.0],
+                            [UIColor colorWithRed:0.26 green:0.25 blue:0.24 alpha:1.0],
+                         nil];
+    static int colorId = 0;
+    
+    if ([overlay isKindOfClass:[RoutePolyline class]])
+    {
+		MKPolylineView *polylineView = [[MKPolylineView alloc] initWithPolyline:overlay];
+		polylineView.strokeColor = [okColors objectAtIndex:colorId];
+        colorId = (colorId + 1) % [okColors count];
+		polylineView.lineWidth = 15;
+		return polylineView;
+    } else if ([overlay isKindOfClass:[MKPolyline class]])
+    {
+		MKPolylineView *polylineView = [[MKPolylineView alloc] initWithPolyline:overlay];
+		polylineView.strokeColor = [UIColor colorWithRed:1.0 green:0.49 blue:0.25 alpha:1.0];
+		polylineView.lineWidth = 8;
+		return polylineView;
+	}
+	
+	return [[MKOverlayView alloc] initWithOverlay:overlay];
+}
+
 
 
 #pragma mark - CLLocationManagerDelegate

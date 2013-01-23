@@ -2,8 +2,7 @@
 //  AppDelegate.m
 //  ngtmap
 //
-//  Created by Vasily Zubarev on 12.02.12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Created by vas3k on 12.02.12.
 //
 
 #import "AppDelegate.h"
@@ -18,25 +17,12 @@
 - (id)init
 {
     if (self == [super init])
-    {           
-//        // Проверка доступности сети
-//        static BOOL checkNetwork = YES;        
-//        if (checkNetwork) 
-//        {
-//            checkNetwork = NO;
-//            Boolean success;    
-//            const char *host_name = "vas3k.ru";
-//            
-//            SCNetworkReachabilityRef reachability = SCNetworkReachabilityCreateWithName(NULL, host_name);
-//            SCNetworkReachabilityFlags flags;
-//            success = SCNetworkReachabilityGetFlags(reachability, &flags);
-//            BOOL isConnected = success && (flags & kSCNetworkFlagsReachable) && !(flags & kSCNetworkFlagsConnectionRequired);
-//            CFRelease(reachability);
-//            if (isConnected == NO)
-//            {
-//                NSLog(@"NO DATA");
-//            }
-//        }      
+    {
+        // Настройка рюшечек
+        [[UITabBar appearance] setTintColor:[UIColor colorWithRed:0.26 green:0.25 blue:0.24 alpha:1.0]];
+        [[UITabBar appearance] setSelectedImageTintColor:[UIColor colorWithRed:0.98 green:0.49 blue:0.25 alpha:1.0]];
+        [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:0.38 green:0.66 blue:0.59 alpha:1.0]];
+        [[UISearchBar appearance] setTintColor:[UIColor colorWithRed:0.38 green:0.66 blue:0.59 alpha:1.0]];
     }
     return self;
 }
@@ -61,7 +47,7 @@
     
     // И его навигатор
     UINavigationController *searchNavigationViewController = [[UINavigationController alloc] initWithRootViewController:_searchViewController];
-    searchNavigationViewController.title = @"Поиск";
+    searchNavigationViewController.title = @"Маршруты";
     
     // Контроллер избранного
     _favoritesViewController = [[FavoritesViewController alloc] initWithNibName:@"FavoritesViewController" bundle:nil];
@@ -72,6 +58,15 @@
     UINavigationController *favoritesNavigationViewController = [[UINavigationController alloc] initWithRootViewController:_favoritesViewController];
     favoritesNavigationViewController.title = @"Избранное";
     
+    // Контроллер поиска проезда
+    _routesViewController = [[RoutesViewController alloc] initWithNibName:@"RoutesViewController" bundle:nil];
+    _routesViewController.title = @"Поиск проезда";
+    _routesViewController.tabBarItem.image = [UIImage imageNamed:@"routes.png"];
+    
+    // И его навигатор
+    UINavigationController *routesNavigationViewController = [[UINavigationController alloc] initWithRootViewController:_routesViewController];
+    routesNavigationViewController.title = @"Проезд";
+    
     // Контроллер карты    
     _mapViewController = [[MapViewController alloc] init];
     _mapViewController.title = @"Карта";
@@ -79,13 +74,16 @@
     
     // Добавляем все в таббар
     _tabBarController = [[UITabBarController alloc] init];
-    _tabBarController.viewControllers = [NSArray arrayWithObjects: searchNavigationViewController, favoritesNavigationViewController, _mapViewController, nil];
+    _tabBarController.viewControllers = [NSArray arrayWithObjects: searchNavigationViewController, favoritesNavigationViewController,
+                                         routesNavigationViewController, _mapViewController, nil];
     
     // Не забываем релизнуть навигаторы
     [searchNavigationViewController release];
     [favoritesNavigationViewController release];
+    [routesNavigationViewController release];
     
     // И отображаем
+    self.window.rootViewController = _tabBarController;
     [self.window addSubview:_tabBarController.view];
     [self.window makeKeyAndVisible];
     return YES;

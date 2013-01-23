@@ -2,20 +2,17 @@
 //  SearchViewController.h
 //  ngtmap
 //
-//  Created by Vasily Zubarev on 12.02.12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Created by vas3k on 12.02.12.
 //
 
 #import <UIKit/UIKit.h>
-#import "TransportDataSource.h"
 #import "NGTDataSource.h"
 
 @interface SearchViewController : UITableViewController  <UISearchDisplayDelegate, UISearchBarDelegate, UIAlertViewDelegate>
 {
-    TransportDataSource *transportDataSource;
 }
 
-@property (nonatomic, retain) TransportDataSource *transportDataSource;
+@property (nonatomic, retain) NGTDataSource *transportDataSource;
 
 - (IBAction)tryToLoadData;
 - (void)showInfoController;

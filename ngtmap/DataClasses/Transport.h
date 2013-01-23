@@ -2,11 +2,11 @@
 //  Transport.h
 //  ngtmap
 //
-//  Created by Vasily Zubarev on 13.02.12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Created by vas3k on 12.02.12.
 //
 
 #import <Foundation/Foundation.h>
+#import <MapKit/MapKit.h>
 
 @class TransportDataSource;
 
@@ -16,14 +16,15 @@
 }
 
 @property (nonatomic, retain) NSString *identificator, *type, *number, *stopA, *stopB, *canonicalType;
+@property (nonatomic) CLLocationCoordinate2D stopACoordinates, stopBCoordinates;
+@property (nonatomic, retain) MKPolyline *routeLine;
 @property (nonatomic, retain) UIImage *icon;
+@property (nonatomic, retain) UIImage *detailsIcon;
 @property (nonatomic, retain) NSArray *cars;
 @property (nonatomic) BOOL inFavorites;
 @property (nonatomic, retain) NSDictionary *canonicalTypes;
 @property (nonatomic, retain) TransportDataSource *transportDataSource; 
 @property (nonatomic, retain) NSDate *lastUpdate;
-
-//self, @"datasource", identificator, @"id", type, @"type", number, @"number", stopA, @"stopA", stopB, @"stopB", inFavorites, @"inFavorites"
 
 - (id)initWithDatasource:(TransportDataSource*)datasource 
            identificator:(NSString*)identificator 
@@ -35,5 +36,6 @@
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 - (BOOL)loadCars;
 - (void)loadCarsTo:(id)callbackObject;
+- (void)loadTrassesTo:(id)callbackObject;
 
 @end

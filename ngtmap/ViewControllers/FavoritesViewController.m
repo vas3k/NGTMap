@@ -2,8 +2,7 @@
 //  FavoritesViewController.m
 //  ngtmap
 //
-//  Created by Vasily Zubarev on 13.02.12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Created by vas3k on 12.02.12.
 //
 
 #import "FavoritesViewController.h"
@@ -43,8 +42,7 @@
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];         
         [userDefaults setObject:self.favoritesNgtStrings forKey:@"favorites_ngt"];
         
-        UITableView *tableView = (UITableView *)self.view;
-        [tableView reloadData];
+        [(UITableView *)self.view reloadData];
     }
 }
 
@@ -58,8 +56,7 @@
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];         
     [userDefaults setObject:self.favoritesNgtStrings forKey:@"favorites_ngt"];
     
-    UITableView *tableView = (UITableView *)self.view;
-    [tableView reloadData];
+    [(UITableView *)self.view reloadData];
 }
 
 - (void)addOrRemoveFromFavorites:(Transport *)transport 
@@ -151,6 +148,11 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [self.favoritesNgtObjects count];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 55;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
