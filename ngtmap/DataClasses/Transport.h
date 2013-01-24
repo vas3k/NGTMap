@@ -25,6 +25,7 @@
 @property (nonatomic, retain) NSDictionary *canonicalTypes;
 @property (nonatomic, retain) TransportDataSource *transportDataSource; 
 @property (nonatomic, retain) NSDate *lastUpdate;
+@property (nonatomic) NSInteger numberInt;
 
 - (id)initWithDatasource:(TransportDataSource*)datasource 
            identificator:(NSString*)identificator 

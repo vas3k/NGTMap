@@ -18,6 +18,7 @@
 @synthesize detailsIcon;
 @synthesize cars;
 @synthesize lastUpdate;
+@synthesize numberInt;
 
 - (id)init
 {
