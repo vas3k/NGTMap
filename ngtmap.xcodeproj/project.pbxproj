@@ -173,9 +173,9 @@
 		736C006A14E81A32005D6503 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapViewController.m; path = ViewControllers/MapViewController.m; sourceTree = "<group>"; };
 		736C006B14E81A32005D6503 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MapViewController.xib; path = ViewControllers/MapViewController.xib; sourceTree = "<group>"; };
 		736C007114E82D3C005D6503 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		736C007314E83E69005D6503 /* FavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FavoritesViewController.h; path = ngtmap/ViewControllers/FavoritesViewController.h; sourceTree = "<group>"; };
-		736C007414E83E69005D6503 /* FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FavoritesViewController.m; path = ngtmap/ViewControllers/FavoritesViewController.m; sourceTree = "<group>"; };
-		736C007514E83E69005D6503 /* FavoritesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FavoritesViewController.xib; path = ngtmap/ViewControllers/FavoritesViewController.xib; sourceTree = "<group>"; };
+		736C007314E83E69005D6503 /* FavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FavoritesViewController.h; path = ViewControllers/FavoritesViewController.h; sourceTree = "<group>"; };
+		736C007414E83E69005D6503 /* FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FavoritesViewController.m; path = ViewControllers/FavoritesViewController.m; sourceTree = "<group>"; };
+		736C007514E83E69005D6503 /* FavoritesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FavoritesViewController.xib; path = ViewControllers/FavoritesViewController.xib; sourceTree = "<group>"; };
 		738CA1A91616B42200A5B358 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		738F7CDC1622AF420024457A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		739008BC14E8EF1A009A6D0D /* Transport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Transport.h; path = DataClasses/Transport.h; sourceTree = "<group>"; };
@@ -234,7 +234,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		730B95DD16A28260007105BB /* RoutesViewController */ = {
+		71DA6D4516B184380080B91D /* List */ = {
+			isa = PBXGroup;
+			children = (
+				736C006F14E81A47005D6503 /* Search */,
+				73375B4614EAE89500ED7667 /* Details */,
+				733B0FA914F0E219004E01BD /* AppInfo */,
+			);
+			name = List;
+			sourceTree = "<group>";
+		};
+		71DA6D4716B1844E0080B91D /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				736C007314E83E69005D6503 /* FavoritesViewController.h */,
+				736C007414E83E69005D6503 /* FavoritesViewController.m */,
+				736C007514E83E69005D6503 /* FavoritesViewController.xib */,
+			);
+			name = Favorites;
+			sourceTree = "<group>";
+		};
+		71DA6D4816B184B40080B91D /* SearchRoutes */ = {
 			isa = PBXGroup;
 			children = (
 				730B95D716A28259007105BB /* RoutesViewController.h */,
@@ -247,7 +267,19 @@
 				73E7897F16A477A9001F7081 /* RouteCell.m */,
 				73E7898116A477BD001F7081 /* RouteCell.xib */,
 			);
-			name = RoutesViewController;
+			name = SearchRoutes;
+			sourceTree = "<group>";
+		};
+		71DA6D4916B1854A0080B91D /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				71DA6D4516B184380080B91D /* List */,
+				71DA6D4716B1844E0080B91D /* Favorites */,
+				71DA6D4816B184B40080B91D /* SearchRoutes */,
+				736C006E14E81A39005D6503 /* Map */,
+				739008D014E94CC6009A6D0D /* Images */,
+			);
+			name = UI;
 			sourceTree = "<group>";
 		};
 		730B95E016A2943B007105BB /* bus */ = {
@@ -294,14 +326,14 @@
 			name = mt;
 			sourceTree = "<group>";
 		};
-		73375B4614EAE89500ED7667 /* DetailsViewController */ = {
+		73375B4614EAE89500ED7667 /* Details */ = {
 			isa = PBXGroup;
 			children = (
 				73375B4014EAE88F00ED7667 /* DetailsViewController.h */,
 				73375B4114EAE88F00ED7667 /* DetailsViewController.m */,
 				73375B4214EAE88F00ED7667 /* DetailsViewController.xib */,
 			);
-			name = DetailsViewController;
+			name = Details;
 			sourceTree = "<group>";
 		};
 		7338949A16A565FD00AF3DD0 /* buttons */ = {
@@ -331,14 +363,14 @@
 			name = Media;
 			sourceTree = "<group>";
 		};
-		733B0FA914F0E219004E01BD /* InfoViewController */ = {
+		733B0FA914F0E219004E01BD /* AppInfo */ = {
 			isa = PBXGroup;
 			children = (
 				733B0FA414F0E212004E01BD /* InfoViewController.h */,
 				733B0FA514F0E213004E01BD /* InfoViewController.m */,
 				733B0FA614F0E214004E01BD /* InfoViewController.xib */,
 			);
-			name = InfoViewController;
+			name = AppInfo;
 			sourceTree = "<group>";
 		};
 		736C003314E81351005D6503 = {
@@ -376,19 +408,13 @@
 		736C004814E81351005D6503 /* ngtmap */ = {
 			isa = PBXGroup;
 			children = (
-				7390090714E96AF6009A6D0D /* JSONKit */,
-				739008D014E94CC6009A6D0D /* Images */,
-				736C004914E81352005D6503 /* Supporting Files */,
 				736C005114E81354005D6503 /* AppDelegate.h */,
 				736C005214E81354005D6503 /* AppDelegate.m */,
-				73375B4614EAE89500ED7667 /* DetailsViewController */,
-				739008B714E83F27009A6D0D /* FavoritesViewController */,
-				736C006F14E81A47005D6503 /* SearchViewController */,
-				733B0FA914F0E219004E01BD /* InfoViewController */,
-				736C006E14E81A39005D6503 /* MapViewController */,
-				730B95DD16A28260007105BB /* RoutesViewController */,
+				71DA6D4916B1854A0080B91D /* UI */,
 				739008BF14E8EF20009A6D0D /* DataClasses */,
 				739008C314E8EF8F009A6D0D /* DataSources */,
+				736C004914E81352005D6503 /* Supporting Files */,
+				7390090714E96AF6009A6D0D /* JSONKit */,
 			);
 			path = ngtmap;
 			sourceTree = "<group>";
@@ -404,17 +430,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		736C006E14E81A39005D6503 /* MapViewController */ = {
+		736C006E14E81A39005D6503 /* Map */ = {
 			isa = PBXGroup;
 			children = (
 				736C006914E81A32005D6503 /* MapViewController.h */,
 				736C006A14E81A32005D6503 /* MapViewController.m */,
 				736C006B14E81A32005D6503 /* MapViewController.xib */,
 			);
-			name = MapViewController;
+			name = Map;
 			sourceTree = "<group>";
 		};
-		736C006F14E81A47005D6503 /* SearchViewController */ = {
+		736C006F14E81A47005D6503 /* Search */ = {
 			isa = PBXGroup;
 			children = (
 				736C006414E81A18005D6503 /* SearchViewController.h */,
@@ -424,18 +450,7 @@
 				739008CA14E94569009A6D0D /* SearchCell.m */,
 				739008C714E93F36009A6D0D /* SearchCell.xib */,
 			);
-			name = SearchViewController;
-			sourceTree = "<group>";
-		};
-		739008B714E83F27009A6D0D /* FavoritesViewController */ = {
-			isa = PBXGroup;
-			children = (
-				736C007314E83E69005D6503 /* FavoritesViewController.h */,
-				736C007414E83E69005D6503 /* FavoritesViewController.m */,
-				736C007514E83E69005D6503 /* FavoritesViewController.xib */,
-			);
-			name = FavoritesViewController;
-			path = ..;
+			name = Search;
 			sourceTree = "<group>";
 		};
 		739008BF14E8EF20009A6D0D /* DataClasses */ = {
