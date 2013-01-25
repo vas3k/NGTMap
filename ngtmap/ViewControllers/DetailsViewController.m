@@ -114,35 +114,26 @@ typedef enum { SectionHeader, SectionButtons, SectionTimetable } Sections;
         [self.favoritesButton setBackgroundImage:resizableGreenButtonHighlighted forState:UIControlStateHighlighted];
     }
     
-    if (self.transport)
-    {
+    [self.mapView setRegion:MKCoordinateRegionMake(CLLocationCoordinate2DMake(55.033333, 82.916667), MKCoordinateSpanMake(0.5, 0.5))];
+}
+
+- (void)refreshControls {
+    if (self.transport) { 
         self.title = [[NSString stringWithFormat:@"%@ %@", self.transport.canonicalType, self.transport.number] capitalizedString];
-    }
-    else
-    {
+    } else { //vas3k, what is this? where it is used?
         self.title = @"Подробности";
     }
-    
-    [self.mapView setRegion:MKCoordinateRegionMake(CLLocationCoordinate2DMake(55.033333, 82.916667), MKCoordinateSpanMake(0.5, 0.5))];
     
     icon.image = transport.detailsIcon;
     numberLabel.text = transport.number;
     stopALabel.text = [transport.stopA capitalizedString];
     stopBLabel.text = [transport.stopB capitalizedString];
     
-    if (transport.inFavorites)
-    {
-        self.favoritesButton.titleLabel.text = @"Разлюбить";
-    }
-    else
-    {
-        self.favoritesButton.titleLabel.text = @"В избранное";
-    } 
+    self.favoritesButton.titleLabel.text = transport.inFavorites ? @"Разлюбить" : @"В избранное";
 }
 
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
+- (void)viewWillAppear:(BOOL)animated {
+    [self refreshControls];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -164,14 +155,7 @@ typedef enum { SectionHeader, SectionButtons, SectionTimetable } Sections;
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [appDelegate.favoritesViewController addOrRemoveFromFavorites:self.transport];
     [appDelegate.favoritesViewController.tabBarController setSelectedIndex:1];
-    if (transport.inFavorites)
-    {
-        self.favoritesButton.titleLabel.text = @"Разлюбить";
-    }
-    else
-    {
-        self.favoritesButton.titleLabel.text = @"В избранное";
-    }
+    [self refreshControls];
 }
 
 
