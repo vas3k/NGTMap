@@ -14,9 +14,7 @@
 @property (nonatomic, retain) IBOutlet UIImageView *icon;
 @property (nonatomic, retain) IBOutlet UILabel *numberLabel;
 @property (nonatomic, retain) IBOutlet UILabel *stopALabel;
-@property (nonatomic, retain) IBOutlet UIButton *favoritesButton;
 
 - (void)fillWithTransport:(Transport *)transport;
-- (IBAction)toggleFavorites:(id)sender;
 
 @end

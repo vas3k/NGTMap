@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		710054A316B2EC1800E33187 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7100549E16B2EC1800E33187 /* Default-568h@2x.png */; };
+		710054A416B2EC1800E33187 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7100549F16B2EC1800E33187 /* Default.png */; };
+		710054A516B2EC1800E33187 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 710054A016B2EC1800E33187 /* Default@2x.png */; };
+		710054A616B2EC1800E33187 /* icon57.png in Resources */ = {isa = PBXBuildFile; fileRef = 710054A116B2EC1800E33187 /* icon57.png */; };
+		710054A716B2EC1800E33187 /* icon114.png in Resources */ = {isa = PBXBuildFile; fileRef = 710054A216B2EC1800E33187 /* icon114.png */; };
 		730B95DA16A28259007105BB /* RoutesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 730B95D816A28259007105BB /* RoutesViewController.m */; };
 		730B95DB16A28259007105BB /* RoutesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 730B95D916A28259007105BB /* RoutesViewController.xib */; };
 		730B95DF16A287F2007105BB /* routes.png in Resources */ = {isa = PBXBuildFile; fileRef = 730B95DE16A287F2007105BB /* routes.png */; };
@@ -45,10 +50,6 @@
 		733B0F8814EFE70D004E01BD /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = 733B0F8514EFE70D004E01BD /* search.png */; };
 		733B0F8B14F021BF004E01BD /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 733B0F8A14F021BE004E01BD /* SystemConfiguration.framework */; };
 		733B0F8D14F02BE6004E01BD /* refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 733B0F8C14F02BE5004E01BD /* refresh.png */; };
-		733B0F8F14F045FB004E01BD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 733B0F8E14F045FB004E01BD /* Default@2x.png */; };
-		733B0F9114F045FF004E01BD /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 733B0F9014F045FF004E01BD /* Default.png */; };
-		733B0F9314F0463B004E01BD /* icon114.png in Resources */ = {isa = PBXBuildFile; fileRef = 733B0F9214F0463B004E01BD /* icon114.png */; };
-		733B0F9514F04668004E01BD /* icon57.png in Resources */ = {isa = PBXBuildFile; fileRef = 733B0F9414F04668004E01BD /* icon57.png */; };
 		733B0F9C14F0D9D7004E01BD /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = 733B0F9B14F0D9D7004E01BD /* location.png */; };
 		733B0FA314F0DF0B004E01BD /* button_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 733B0FA214F0DF0B004E01BD /* button_bg.png */; };
 		733B0FA714F0E214004E01BD /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 733B0FA514F0E213004E01BD /* InfoViewController.m */; };
@@ -68,7 +69,6 @@
 		736C007214E82D3D005D6503 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 736C007114E82D3C005D6503 /* MapKit.framework */; };
 		736C007614E83E69005D6503 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 736C007414E83E69005D6503 /* FavoritesViewController.m */; };
 		736C007714E83E69005D6503 /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736C007514E83E69005D6503 /* FavoritesViewController.xib */; };
-		738CA1AA1616B42200A5B358 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 738CA1A91616B42200A5B358 /* Default-568h@2x.png */; };
 		738F7CDD1622AF430024457A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 738F7CDC1622AF420024457A /* StoreKit.framework */; };
 		739008BE14E8EF1B009A6D0D /* Transport.m in Sources */ = {isa = PBXBuildFile; fileRef = 739008BD14E8EF1B009A6D0D /* Transport.m */; };
 		739008C214E8EF8B009A6D0D /* NGTDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 739008C114E8EF8B009A6D0D /* NGTDataSource.m */; };
@@ -102,6 +102,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7100549E16B2EC1800E33187 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Images/media/Default-568h@2x.png"; sourceTree = "<group>"; };
+		7100549F16B2EC1800E33187 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Images/media/Default.png; sourceTree = "<group>"; };
+		710054A016B2EC1800E33187 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Images/media/Default@2x.png"; sourceTree = "<group>"; };
+		710054A116B2EC1800E33187 /* icon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon57.png; path = Images/media/icon57.png; sourceTree = "<group>"; };
+		710054A216B2EC1800E33187 /* icon114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon114.png; path = Images/media/icon114.png; sourceTree = "<group>"; };
+		71A159C316B0331B0021061A /* TODO */ = {isa = PBXFileReference; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
 		730B95D716A28259007105BB /* RoutesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RoutesViewController.h; path = ViewControllers/RoutesViewController.h; sourceTree = "<group>"; };
 		730B95D816A28259007105BB /* RoutesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RoutesViewController.m; path = ViewControllers/RoutesViewController.m; sourceTree = "<group>"; };
 		730B95D916A28259007105BB /* RoutesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RoutesViewController.xib; path = ViewControllers/RoutesViewController.xib; sourceTree = "<group>"; };
@@ -144,10 +150,6 @@
 		733B0F8514EFE70D004E01BD /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = search.png; path = Images/icons/search.png; sourceTree = "<group>"; };
 		733B0F8A14F021BE004E01BD /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		733B0F8C14F02BE5004E01BD /* refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = refresh.png; path = Images/icons/refresh.png; sourceTree = "<group>"; };
-		733B0F8E14F045FB004E01BD /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
-		733B0F9014F045FF004E01BD /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
-		733B0F9214F0463B004E01BD /* icon114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon114.png; path = ../icon114.png; sourceTree = "<group>"; };
-		733B0F9414F04668004E01BD /* icon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon57.png; path = ../icon57.png; sourceTree = "<group>"; };
 		733B0F9B14F0D9D7004E01BD /* location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = location.png; path = Images/icons/location.png; sourceTree = "<group>"; };
 		733B0FA214F0DF0B004E01BD /* button_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_bg.png; path = Images/icons/button_bg.png; sourceTree = "<group>"; };
 		733B0FA414F0E212004E01BD /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InfoViewController.h; path = ViewControllers/InfoViewController.h; sourceTree = "<group>"; };
@@ -172,10 +174,9 @@
 		736C006A14E81A32005D6503 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapViewController.m; path = ViewControllers/MapViewController.m; sourceTree = "<group>"; };
 		736C006B14E81A32005D6503 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MapViewController.xib; path = ViewControllers/MapViewController.xib; sourceTree = "<group>"; };
 		736C007114E82D3C005D6503 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		736C007314E83E69005D6503 /* FavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FavoritesViewController.h; path = ngtmap/ViewControllers/FavoritesViewController.h; sourceTree = "<group>"; };
-		736C007414E83E69005D6503 /* FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FavoritesViewController.m; path = ngtmap/ViewControllers/FavoritesViewController.m; sourceTree = "<group>"; };
-		736C007514E83E69005D6503 /* FavoritesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FavoritesViewController.xib; path = ngtmap/ViewControllers/FavoritesViewController.xib; sourceTree = "<group>"; };
-		738CA1A91616B42200A5B358 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
+		736C007314E83E69005D6503 /* FavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FavoritesViewController.h; path = ViewControllers/FavoritesViewController.h; sourceTree = "<group>"; };
+		736C007414E83E69005D6503 /* FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FavoritesViewController.m; path = ViewControllers/FavoritesViewController.m; sourceTree = "<group>"; };
+		736C007514E83E69005D6503 /* FavoritesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FavoritesViewController.xib; path = ViewControllers/FavoritesViewController.xib; sourceTree = "<group>"; };
 		738F7CDC1622AF420024457A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		739008BC14E8EF1A009A6D0D /* Transport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Transport.h; path = DataClasses/Transport.h; sourceTree = "<group>"; };
 		739008BD14E8EF1B009A6D0D /* Transport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Transport.m; path = DataClasses/Transport.m; sourceTree = "<group>"; };
@@ -233,7 +234,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		730B95DD16A28260007105BB /* RoutesViewController */ = {
+		71DA6D4516B184380080B91D /* List */ = {
+			isa = PBXGroup;
+			children = (
+				736C006F14E81A47005D6503 /* Search */,
+				73375B4614EAE89500ED7667 /* Details */,
+				733B0FA914F0E219004E01BD /* AppInfo */,
+			);
+			name = List;
+			sourceTree = "<group>";
+		};
+		71DA6D4716B1844E0080B91D /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				736C007314E83E69005D6503 /* FavoritesViewController.h */,
+				736C007414E83E69005D6503 /* FavoritesViewController.m */,
+				736C007514E83E69005D6503 /* FavoritesViewController.xib */,
+			);
+			name = Favorites;
+			sourceTree = "<group>";
+		};
+		71DA6D4816B184B40080B91D /* SearchRoutes */ = {
 			isa = PBXGroup;
 			children = (
 				730B95D716A28259007105BB /* RoutesViewController.h */,
@@ -246,7 +267,19 @@
 				73E7897F16A477A9001F7081 /* RouteCell.m */,
 				73E7898116A477BD001F7081 /* RouteCell.xib */,
 			);
-			name = RoutesViewController;
+			name = SearchRoutes;
+			sourceTree = "<group>";
+		};
+		71DA6D4916B1854A0080B91D /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				71DA6D4516B184380080B91D /* List */,
+				71DA6D4716B1844E0080B91D /* Favorites */,
+				71DA6D4816B184B40080B91D /* SearchRoutes */,
+				736C006E14E81A39005D6503 /* Map */,
+				739008D014E94CC6009A6D0D /* Images */,
+			);
+			name = UI;
 			sourceTree = "<group>";
 		};
 		730B95E016A2943B007105BB /* bus */ = {
@@ -293,14 +326,14 @@
 			name = mt;
 			sourceTree = "<group>";
 		};
-		73375B4614EAE89500ED7667 /* DetailsViewController */ = {
+		73375B4614EAE89500ED7667 /* Details */ = {
 			isa = PBXGroup;
 			children = (
 				73375B4014EAE88F00ED7667 /* DetailsViewController.h */,
 				73375B4114EAE88F00ED7667 /* DetailsViewController.m */,
 				73375B4214EAE88F00ED7667 /* DetailsViewController.xib */,
 			);
-			name = DetailsViewController;
+			name = Details;
 			sourceTree = "<group>";
 		};
 		7338949A16A565FD00AF3DD0 /* buttons */ = {
@@ -319,30 +352,31 @@
 		733B0F9614F04B53004E01BD /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				7100549E16B2EC1800E33187 /* Default-568h@2x.png */,
+				7100549F16B2EC1800E33187 /* Default.png */,
+				710054A016B2EC1800E33187 /* Default@2x.png */,
+				710054A116B2EC1800E33187 /* icon57.png */,
+				710054A216B2EC1800E33187 /* icon114.png */,
 				73E7898816A494B6001F7081 /* route.png */,
 				73E7898916A494B6001F7081 /* route@2x.png */,
-				733B0F9414F04668004E01BD /* icon57.png */,
-				733B0F9214F0463B004E01BD /* icon114.png */,
-				733B0F9014F045FF004E01BD /* Default.png */,
-				733B0F8E14F045FB004E01BD /* Default@2x.png */,
-				738CA1A91616B42200A5B358 /* Default-568h@2x.png */,
 			);
 			name = Media;
 			sourceTree = "<group>";
 		};
-		733B0FA914F0E219004E01BD /* InfoViewController */ = {
+		733B0FA914F0E219004E01BD /* AppInfo */ = {
 			isa = PBXGroup;
 			children = (
 				733B0FA414F0E212004E01BD /* InfoViewController.h */,
 				733B0FA514F0E213004E01BD /* InfoViewController.m */,
 				733B0FA614F0E214004E01BD /* InfoViewController.xib */,
 			);
-			name = InfoViewController;
+			name = AppInfo;
 			sourceTree = "<group>";
 		};
 		736C003314E81351005D6503 = {
 			isa = PBXGroup;
 			children = (
+				71A159C316B0331B0021061A /* TODO */,
 				736C004814E81351005D6503 /* ngtmap */,
 				736C004114E81351005D6503 /* Frameworks */,
 				736C003F14E81351005D6503 /* Products */,
@@ -374,19 +408,13 @@
 		736C004814E81351005D6503 /* ngtmap */ = {
 			isa = PBXGroup;
 			children = (
-				7390090714E96AF6009A6D0D /* JSONKit */,
-				739008D014E94CC6009A6D0D /* Images */,
-				736C004914E81352005D6503 /* Supporting Files */,
 				736C005114E81354005D6503 /* AppDelegate.h */,
 				736C005214E81354005D6503 /* AppDelegate.m */,
-				73375B4614EAE89500ED7667 /* DetailsViewController */,
-				739008B714E83F27009A6D0D /* FavoritesViewController */,
-				736C006F14E81A47005D6503 /* SearchViewController */,
-				733B0FA914F0E219004E01BD /* InfoViewController */,
-				736C006E14E81A39005D6503 /* MapViewController */,
-				730B95DD16A28260007105BB /* RoutesViewController */,
+				71DA6D4916B1854A0080B91D /* UI */,
 				739008BF14E8EF20009A6D0D /* DataClasses */,
 				739008C314E8EF8F009A6D0D /* DataSources */,
+				736C004914E81352005D6503 /* Supporting Files */,
+				7390090714E96AF6009A6D0D /* JSONKit */,
 			);
 			path = ngtmap;
 			sourceTree = "<group>";
@@ -402,17 +430,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		736C006E14E81A39005D6503 /* MapViewController */ = {
+		736C006E14E81A39005D6503 /* Map */ = {
 			isa = PBXGroup;
 			children = (
 				736C006914E81A32005D6503 /* MapViewController.h */,
 				736C006A14E81A32005D6503 /* MapViewController.m */,
 				736C006B14E81A32005D6503 /* MapViewController.xib */,
 			);
-			name = MapViewController;
+			name = Map;
 			sourceTree = "<group>";
 		};
-		736C006F14E81A47005D6503 /* SearchViewController */ = {
+		736C006F14E81A47005D6503 /* Search */ = {
 			isa = PBXGroup;
 			children = (
 				736C006414E81A18005D6503 /* SearchViewController.h */,
@@ -422,18 +450,7 @@
 				739008CA14E94569009A6D0D /* SearchCell.m */,
 				739008C714E93F36009A6D0D /* SearchCell.xib */,
 			);
-			name = SearchViewController;
-			sourceTree = "<group>";
-		};
-		739008B714E83F27009A6D0D /* FavoritesViewController */ = {
-			isa = PBXGroup;
-			children = (
-				736C007314E83E69005D6503 /* FavoritesViewController.h */,
-				736C007414E83E69005D6503 /* FavoritesViewController.m */,
-				736C007514E83E69005D6503 /* FavoritesViewController.xib */,
-			);
-			name = FavoritesViewController;
-			path = ..;
+			name = Search;
 			sourceTree = "<group>";
 		};
 		739008BF14E8EF20009A6D0D /* DataClasses */ = {
@@ -597,10 +614,6 @@
 				733B0F8714EFE70D004E01BD /* map.png in Resources */,
 				733B0F8814EFE70D004E01BD /* search.png in Resources */,
 				733B0F8D14F02BE6004E01BD /* refresh.png in Resources */,
-				733B0F8F14F045FB004E01BD /* Default@2x.png in Resources */,
-				733B0F9114F045FF004E01BD /* Default.png in Resources */,
-				733B0F9314F0463B004E01BD /* icon114.png in Resources */,
-				733B0F9514F04668004E01BD /* icon57.png in Resources */,
 				733B0F9C14F0D9D7004E01BD /* location.png in Resources */,
 				733B0FA314F0DF0B004E01BD /* button_bg.png in Resources */,
 				733B0FA814F0E214004E01BD /* InfoViewController.xib in Resources */,
@@ -614,7 +627,6 @@
 				73AE1A3214F4BBDE0086D406 /* Bus_arrow-225.png in Resources */,
 				73AE1A3314F4BBDE0086D406 /* Bus_arrow-270.png in Resources */,
 				73AE1A3414F4BBDE0086D406 /* Bus_arrow-315.png in Resources */,
-				738CA1AA1616B42200A5B358 /* Default-568h@2x.png in Resources */,
 				730B95DB16A28259007105BB /* RoutesViewController.xib in Resources */,
 				730B95DF16A287F2007105BB /* routes.png in Resources */,
 				730B95E816A29462007105BB /* bus_details.png in Resources */,
@@ -653,6 +665,11 @@
 				733894A616A5661800AF3DD0 /* button_yellow_press.png in Resources */,
 				733894A716A5661800AF3DD0 /* button_yellow.png in Resources */,
 				73BFBB9416A72176002226BF /* delete.png in Resources */,
+				710054A316B2EC1800E33187 /* Default-568h@2x.png in Resources */,
+				710054A416B2EC1800E33187 /* Default.png in Resources */,
+				710054A516B2EC1800E33187 /* Default@2x.png in Resources */,
+				710054A616B2EC1800E33187 /* icon57.png in Resources */,
+				710054A716B2EC1800E33187 /* icon114.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -701,8 +718,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ARCHS = (
+					armv6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -716,7 +736,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -725,15 +745,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ARCHS = (
+					armv6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -743,17 +766,21 @@
 		736C005D14E81355005D6503 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Vasily Zubarev (NH6LH28CRT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vasily Zubarev (NH6LH28CRT)";
+				ARCHS = (
+					armv6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ngtmap/ngtmap-Prefix.pch";
 				GCC_WARN_UNUSED_VALUE = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
 				INFOPLIST_FILE = "ngtmap/ngtmap-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "B217E2CD-8340-4949-862D-AE5A1C99FE24";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B217E2CD-8340-4949-862D-AE5A1C99FE24";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -763,14 +790,18 @@
 		736C005E14E81355005D6503 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Vasily Zubarev";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Vasily Zubarev";
+				ARCHS = (
+					armv6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ngtmap/ngtmap-Prefix.pch";
 				GCC_WARN_UNUSED_VALUE = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
 				INFOPLIST_FILE = "ngtmap/ngtmap-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
