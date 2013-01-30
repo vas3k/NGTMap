@@ -15,7 +15,7 @@ NSString * const mainUrl = @"http://maps.nskgortrans.ru/";
 
 @implementation NGTDataSource
 
-@synthesize cookieConnection, transportConnection, carsConnection, receivedTransportData, receivedCarsData, trassesConnection, receivedTrassesData, receivedRoutesData;
+@synthesize cookieConnection, transportConnection, carsConnection, receivedTransportData, receivedCarsData, trassesConnection, receivedTrassesData, receivedRoutesData, routesConnection;
 @synthesize magicCookie;
 @synthesize carsLoadObject, trassesLoadObject, routesLoadObject, transportLoadObject;
 
@@ -115,6 +115,7 @@ NSString * const mainUrl = @"http://maps.nskgortrans.ru/";
     NSDictionary *items = [jsonKitDecoder objectWithData:jsonData];
     
     NSString *identificator, *number, *type, *stopA, *stopB;
+    NSInteger numberInt;
     Transport *newTransport;
     NSDictionary *ways;
     NSString *typeId;
@@ -129,6 +130,7 @@ NSString * const mainUrl = @"http://maps.nskgortrans.ru/";
         for (id item in ways)
         {
             number = (NSString *)[item valueForKey:@"name"];
+            numberInt = [number intValue];
             stopA = (NSString *)[item valueForKey:@"stopb"];
             stopB = (NSString *)[item valueForKey:@"stope"]; 
             identificator = [NSString stringWithFormat:@"%d-%@-W-%@", ([typeId integerValue]+1), 
@@ -136,12 +138,13 @@ NSString * const mainUrl = @"http://maps.nskgortrans.ru/";
                              number];  
                         
             newTransport = [[Transport alloc] initWithDatasource:self identificator:identificator type:type number:number stopA:stopA stopB:stopB inFavorites:NO];
+            newTransport.numberInt = numberInt;
             [newTransportList addObject:newTransport];
             [newTransport release];
         }
     }
     NSArray *sortedTransportList = [newTransportList sortedArrayUsingComparator:^NSComparisonResult(Transport *a, Transport *b) {
-        return [a.number compare:b.number];
+        return a.numberInt > b.numberInt ? NSOrderedDescending : ( a.numberInt == b.numberInt ? NSOrderedSame : NSOrderedAscending);
     }];
     return sortedTransportList;
 }

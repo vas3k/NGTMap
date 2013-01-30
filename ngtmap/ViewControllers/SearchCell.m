@@ -10,7 +10,7 @@
 
 @implementation SearchCell
 
-@synthesize trans, icon, numberLabel, stopALabel, favoritesButton;
+@synthesize trans, icon, numberLabel, stopALabel;
 
 - (void)fillWithTransport:(Transport *)transport
 {
@@ -26,14 +26,7 @@
     self.icon.image = transport.icon;
     self.numberLabel.text =  [NSString stringWithFormat:@"%@ %@", transport.number, transport.canonicalType];
     self.stopALabel.text = [NSString stringWithFormat:@"%@ — %@", transport.stopA, transport.stopB];
-    [self.favoritesButton setHidden:(!transport.inFavorites)];
 }
 
-- (IBAction)toggleFavorites:(id)sender
-{
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [appDelegate.favoritesViewController addOrRemoveFromFavorites:self.trans];
-    [appDelegate.favoritesViewController.tabBarController setSelectedIndex:1];      
-}
 
 @end

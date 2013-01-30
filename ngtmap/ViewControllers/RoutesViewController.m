@@ -48,19 +48,22 @@
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     [self.locationManager startUpdatingLocation];
-        
-    UIImage *resizableWhiteButton = [[UIImage imageNamed:@"button_white.png" ] resizableImageWithCapInsets:UIEdgeInsetsMake(15, 5, 15, 5)];
-    UIImage *resizableWhiteButtonHighlighted = [[UIImage imageNamed:@"button_white_press.png" ] resizableImageWithCapInsets:UIEdgeInsetsMake(15, 5, 15, 5)];
-    [self.startButton setBackgroundImage:resizableWhiteButton forState:UIControlStateNormal];
-    [self.startButton setBackgroundImage:resizableWhiteButtonHighlighted forState:UIControlStateHighlighted];
-    [self.stopButton setBackgroundImage:resizableWhiteButton forState:UIControlStateNormal];
-    [self.stopButton setBackgroundImage:resizableWhiteButtonHighlighted forState:UIControlStateHighlighted];
     
-    UIImage *resizableGreenButton = [[UIImage imageNamed:@"button_green.png" ] resizableImageWithCapInsets:UIEdgeInsetsMake(15, 5, 15, 5)];
-    UIImage *resizableGreenButtonHighlighted = [[UIImage imageNamed:@"button_green_press.png" ] resizableImageWithCapInsets:UIEdgeInsetsMake(15, 5, 15, 5)];
-    [self.searchButton setBackgroundImage:resizableGreenButton forState:UIControlStateNormal];
-    [self.searchButton setBackgroundImage:resizableGreenButtonHighlighted forState:UIControlStateHighlighted];
+    
+    float version = [[[UIDevice currentDevice] systemVersion] floatValue];
+    if (version >= 5.0){
+        UIImage *resizableWhiteButton = [[UIImage imageNamed:@"button_white.png" ] resizableImageWithCapInsets:UIEdgeInsetsMake(15, 5, 15, 5)];
+        UIImage *resizableWhiteButtonHighlighted = [[UIImage imageNamed:@"button_white_press.png" ] resizableImageWithCapInsets:UIEdgeInsetsMake(15, 5, 15, 5)];
+        [self.startButton setBackgroundImage:resizableWhiteButton forState:UIControlStateNormal];
+        [self.startButton setBackgroundImage:resizableWhiteButtonHighlighted forState:UIControlStateHighlighted];
+        [self.stopButton setBackgroundImage:resizableWhiteButton forState:UIControlStateNormal];
+        [self.stopButton setBackgroundImage:resizableWhiteButtonHighlighted forState:UIControlStateHighlighted];
         
+        UIImage *resizableGreenButton = [[UIImage imageNamed:@"button_green.png" ] resizableImageWithCapInsets:UIEdgeInsetsMake(15, 5, 15, 5)];
+        UIImage *resizableGreenButtonHighlighted = [[UIImage imageNamed:@"button_green_press.png" ] resizableImageWithCapInsets:UIEdgeInsetsMake(15, 5, 15, 5)];
+        [self.searchButton setBackgroundImage:resizableGreenButton forState:UIControlStateNormal];
+        [self.searchButton setBackgroundImage:resizableGreenButtonHighlighted forState:UIControlStateHighlighted];
+    }
     [self.activityIndicator stopAnimating];
 }
 

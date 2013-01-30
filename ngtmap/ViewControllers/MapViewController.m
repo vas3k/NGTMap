@@ -272,20 +272,25 @@ const float DEFAULT_LON = 82.916667;
     }
     [self.mapView setShowsUserLocation:YES];
     
-    UIImage *resizableGreenButton = [[UIImage imageNamed:@"button_green.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(15, 5, 15, 5)];
-    UIImage *resizableGreenButtonHighlighted = [[UIImage imageNamed:@"button_green_press.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(15, 5, 15, 5)];
-    [self.refreshButton setBackgroundImage:resizableGreenButton forState:UIControlStateNormal];
-    [self.refreshButton setBackgroundImage:resizableGreenButtonHighlighted forState:UIControlStateHighlighted];
-    [self.locationButton setBackgroundImage:resizableGreenButton forState:UIControlStateNormal];
-    [self.locationButton setBackgroundImage:resizableGreenButtonHighlighted forState:UIControlStateHighlighted];
-    [self.removeRouteButton setBackgroundImage:resizableGreenButton forState:UIControlStateNormal];
-    [self.removeRouteButton setBackgroundImage:resizableGreenButtonHighlighted forState:UIControlStateHighlighted];
+    
+    float version = [[[UIDevice currentDevice] systemVersion] floatValue];
+    if (version >= 5.0){
+        UIImage *resizableGreenButton = [[UIImage imageNamed:@"button_green.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(15, 5, 15, 5)];
+        UIImage *resizableGreenButtonHighlighted = [[UIImage imageNamed:@"button_green_press.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(15, 5, 15, 5)];
+        [self.refreshButton setBackgroundImage:resizableGreenButton forState:UIControlStateNormal];
+        [self.refreshButton setBackgroundImage:resizableGreenButtonHighlighted forState:UIControlStateHighlighted];
+        [self.locationButton setBackgroundImage:resizableGreenButton forState:UIControlStateNormal];
+        [self.locationButton setBackgroundImage:resizableGreenButtonHighlighted forState:UIControlStateHighlighted];
+        [self.removeRouteButton setBackgroundImage:resizableGreenButton forState:UIControlStateNormal];
+        [self.removeRouteButton setBackgroundImage:resizableGreenButtonHighlighted forState:UIControlStateHighlighted];
+        
+        UIImage *resizableYellowButton = [[UIImage imageNamed:@"button_yellow.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(15, 5, 15, 5)];
+        UIImage *resizableYellowButtonHighlighted = [[UIImage imageNamed:@"button_yellow_press.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(15, 5, 15, 5)];
+        [self.deleteTransportButton setBackgroundImage:resizableYellowButton forState:UIControlStateNormal];
+        [self.deleteTransportButton setBackgroundImage:resizableYellowButtonHighlighted forState:UIControlStateHighlighted];
+    }
     [self.removeRouteButton setHidden:YES];
     
-    UIImage *resizableYellowButton = [[UIImage imageNamed:@"button_yellow.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(15, 5, 15, 5)];
-    UIImage *resizableYellowButtonHighlighted = [[UIImage imageNamed:@"button_yellow_press.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(15, 5, 15, 5)];
-    [self.deleteTransportButton setBackgroundImage:resizableYellowButton forState:UIControlStateNormal];
-    [self.deleteTransportButton setBackgroundImage:resizableYellowButtonHighlighted forState:UIControlStateHighlighted];
 }
 
 - (void)viewDidUnload
