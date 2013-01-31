@@ -93,7 +93,11 @@ typedef enum { SectionHeader, SectionButtons, SectionTimetable } Sections;
         
         //Set
         MKCoordinateRegion region = MKCoordinateRegionForMapRect(mapRect);
-        [self.mapView setRegion:region animated:YES];
+        if ((region.center.latitude >= -90) && (region.center.latitude <= 90) &&
+            (region.center.longitude >= -180) && (region.center.longitude <= 180))
+        {
+                [self.mapView setRegion:region animated:YES];
+        }
     }
 }
 
@@ -120,7 +124,7 @@ typedef enum { SectionHeader, SectionButtons, SectionTimetable } Sections;
 - (void)refreshControls {
     if (self.transport) { 
         self.title = [[NSString stringWithFormat:@"%@ %@", self.transport.canonicalType, self.transport.number] capitalizedString];
-    } else { //vas3k, what is this? where it is used?
+    } else { //vas3k, what is this? where it is used? // уже не актуально, ага
         self.title = @"Подробности";
     }
     
