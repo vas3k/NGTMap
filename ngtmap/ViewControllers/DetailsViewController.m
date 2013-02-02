@@ -121,13 +121,8 @@ typedef enum { SectionHeader, SectionButtons, SectionTimetable } Sections;
     [self.mapView setRegion:MKCoordinateRegionMake(CLLocationCoordinate2DMake(55.033333, 82.916667), MKCoordinateSpanMake(0.5, 0.5))];
 }
 
-- (void)refreshControls {
-    if (self.transport) { 
-        self.title = [[NSString stringWithFormat:@"%@ %@", self.transport.canonicalType, self.transport.number] capitalizedString];
-    } else { //vas3k, what is this? where it is used? // уже не актуально, ага
-        self.title = @"Подробности";
-    }
-    
+- (void)refreshControls { 
+    self.title = [[NSString stringWithFormat:@"%@ %@", self.transport.canonicalType, self.transport.number] capitalizedString];
     icon.image = transport.detailsIcon;
     numberLabel.text = transport.number;
     stopALabel.text = [transport.stopA capitalizedString];
