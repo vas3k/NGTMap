@@ -12,6 +12,7 @@
 		710054A516B2EC1800E33187 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 710054A016B2EC1800E33187 /* Default@2x.png */; };
 		710054A616B2EC1800E33187 /* icon57.png in Resources */ = {isa = PBXBuildFile; fileRef = 710054A116B2EC1800E33187 /* icon57.png */; };
 		710054A716B2EC1800E33187 /* icon114.png in Resources */ = {isa = PBXBuildFile; fileRef = 710054A216B2EC1800E33187 /* icon114.png */; };
+		715E6CCC16BE6D1600094B38 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 715E6CCB16BE6D1600094B38 /* Utility.m */; };
 		730B95DA16A28259007105BB /* RoutesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 730B95D816A28259007105BB /* RoutesViewController.m */; };
 		730B95DB16A28259007105BB /* RoutesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 730B95D916A28259007105BB /* RoutesViewController.xib */; };
 		730B95DF16A287F2007105BB /* routes.png in Resources */ = {isa = PBXBuildFile; fileRef = 730B95DE16A287F2007105BB /* routes.png */; };
@@ -115,6 +116,8 @@
 		710054A016B2EC1800E33187 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Images/media/Default@2x.png"; sourceTree = "<group>"; };
 		710054A116B2EC1800E33187 /* icon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon57.png; path = Images/media/icon57.png; sourceTree = "<group>"; };
 		710054A216B2EC1800E33187 /* icon114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon114.png; path = Images/media/icon114.png; sourceTree = "<group>"; };
+		715E6CCA16BE6D1600094B38 /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
+		715E6CCB16BE6D1600094B38 /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
 		71A159C316B0331B0021061A /* TODO */ = {isa = PBXFileReference; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
 		730B95D716A28259007105BB /* RoutesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RoutesViewController.h; path = ViewControllers/RoutesViewController.h; sourceTree = "<group>"; };
 		730B95D816A28259007105BB /* RoutesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RoutesViewController.m; path = ViewControllers/RoutesViewController.m; sourceTree = "<group>"; };
@@ -431,6 +434,8 @@
 				739008C314E8EF8F009A6D0D /* DataSources */,
 				736C004914E81352005D6503 /* Supporting Files */,
 				7390090714E96AF6009A6D0D /* JSONKit */,
+				715E6CCA16BE6D1600094B38 /* Utility.h */,
+				715E6CCB16BE6D1600094B38 /* Utility.m */,
 			);
 			path = ngtmap;
 			sourceTree = "<group>";
@@ -729,6 +734,7 @@
 				730B961216A2C672007105BB /* Route.m in Sources */,
 				73E7898016A477A9001F7081 /* RouteCell.m in Sources */,
 				73E7898616A481FA001F7081 /* SelectPointsViewController.m in Sources */,
+				715E6CCC16BE6D1600094B38 /* Utility.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -809,7 +815,7 @@
 				GCC_WARN_UNUSED_VALUE = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
 				INFOPLIST_FILE = "ngtmap/ngtmap-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -833,7 +839,7 @@
 				GCC_WARN_UNUSED_VALUE = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
 				INFOPLIST_FILE = "ngtmap/ngtmap-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";

@@ -8,6 +8,7 @@
 
 #import "SelectPointsViewController.h"
 #import "RoutesViewController.h"
+#import "Utility.h"
 
 @interface SelectPointsViewController ()
 
@@ -69,13 +70,10 @@
         [annot release];
     }    
     
-    float version = [[[UIDevice currentDevice] systemVersion] floatValue];
-    if (version >= 5.0){
-        UIImage *resizableYellowButton = [[UIImage imageNamed:@"button_yellow.png" ] resizableImageWithCapInsets:UIEdgeInsetsMake(15, 5, 15, 5)];
-        UIImage *resizableYellowButtonHighlighted = [[UIImage imageNamed:@"button_yellow_press.png" ] resizableImageWithCapInsets:UIEdgeInsetsMake(15, 5, 15, 5)];
-        [self.okButton setBackgroundImage:resizableYellowButton forState:UIControlStateNormal];
-        [self.okButton setBackgroundImage:resizableYellowButtonHighlighted forState:UIControlStateHighlighted];
-    }
+    UIImage *resizableYellowButton = [Utility resizableImageNamed:@"button_yellow.png"];
+    UIImage *resizableYellowButtonHighlighted = [Utility resizableImageNamed:@"button_yellow_press.png"];
+    [self.okButton setBackgroundImage:resizableYellowButton forState:UIControlStateNormal];
+    [self.okButton setBackgroundImage:resizableYellowButtonHighlighted forState:UIControlStateHighlighted];
 }
 
 - (void)didReceiveMemoryWarning
