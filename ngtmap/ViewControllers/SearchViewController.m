@@ -101,7 +101,11 @@
 {
     InfoViewController *infoViewController = [[InfoViewController alloc] initWithNibName:@"InfoViewController" bundle:nil];
     infoViewController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-    [self presentModalViewController:infoViewController animated:YES];
+    if ([self respondsToSelector:@selector(presentViewController:animated:completion:)]){
+        [self presentViewController:infoViewController animated:YES completion:nil];
+    } else {
+        [self presentModalViewController:infoViewController animated:YES];
+    }
     [infoViewController release];
 }
 

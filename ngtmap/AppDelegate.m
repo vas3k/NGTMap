@@ -89,7 +89,6 @@
     
     // И отображаем
     self.window.rootViewController = _tabBarController;
-    [self.window addSubview:_tabBarController.view];
     [self.window makeKeyAndVisible];
     return YES;
 }
