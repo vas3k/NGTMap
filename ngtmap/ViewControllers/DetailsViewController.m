@@ -88,17 +88,9 @@ typedef enum { SectionHeader, SectionButtons, SectionTimetable } Sections;
         MKMapRect mapRect = MKMapRectNull;
         mapRect = ((id<MKOverlay>)self.mapView.overlays.lastObject).boundingMapRect;
         
-        //Inset
-        CGFloat inset = (CGFloat)(mapRect.size.width * 0.1);
-        mapRect = [self.mapView mapRectThatFits:MKMapRectInset(mapRect, inset, inset)];
-        
         //Set
         MKCoordinateRegion region = MKCoordinateRegionForMapRect(mapRect);
-        if ((region.center.latitude >= -90) && (region.center.latitude <= 90) &&
-            (region.center.longitude >= -180) && (region.center.longitude <= 180))
-        {
-                [self.mapView setRegion:region animated:YES];
-        }
+        [self.mapView setRegion:region animated:YES];
     }
 }
 
