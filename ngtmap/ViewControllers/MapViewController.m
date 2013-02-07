@@ -11,6 +11,8 @@
 const float DEFAULT_LAT = 55.033333;
 const float DEFAULT_LON = 82.916667;
 
+#define DEGREES_TO_RADIANS(angle) ((angle) / 180.0 * M_PI)
+
 @implementation MapViewController
 
 @synthesize updateTimer, route;
@@ -318,6 +320,7 @@ const float DEFAULT_LON = 82.916667;
         // Отображаем кастомные иконки и поворачиваем по азимуту
         Car *annotationCar = (Car *)annotation;
         annotationView.image = annotationCar.icon;
+        annotationView.transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS(annotationCar.azimuth));
         [annotationView setCanShowCallout:YES];  
         
         return annotationView;
