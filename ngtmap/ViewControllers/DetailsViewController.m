@@ -79,8 +79,7 @@ typedef enum { SectionHeader, SectionButtons, SectionTimetable } Sections;
 
 - (void)trassesLoaded:(Transport *)transport
 {
-    if (self.mapView != nil)
-    {
+    if (self.mapView != nil && self.transport.routeLine.pointCount > 0 ) {
         [self.mapView removeOverlays:self.mapView.overlays];
         [self.mapView addOverlay:self.transport.routeLine];
         
