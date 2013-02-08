@@ -7,6 +7,7 @@
 
 #import "MapViewController.h"
 #import "Utility.h"
+#import <QuartzCore/QuartzCore.h>
 
 const float DEFAULT_LAT = 55.033333;
 const float DEFAULT_LON = 82.916667;
@@ -290,6 +291,10 @@ const float DEFAULT_LON = 82.916667;
     [self.deleteTransportButton setBackgroundImage:resizableYellowButtonHighlighted forState:UIControlStateHighlighted];
     [self.removeRouteButton setHidden:YES];
     
+    self.detailsView.layer.cornerRadius = 8.0;
+    self.detailsView.layer.borderColor = [UIColor darkGrayColor].CGColor; 
+    self.detailsView.layer.borderWidth = 1;
+    
 }
 
 - (void)viewDidUnload
@@ -321,7 +326,7 @@ const float DEFAULT_LON = 82.916667;
         Car *annotationCar = (Car *)annotation;
         annotationView.image = annotationCar.icon;
         annotationView.transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS(annotationCar.azimuth));
-        [annotationView setCanShowCallout:YES];  
+        [annotationView setCanShowCallout:NO];  
         
         return annotationView;
     }

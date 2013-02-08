@@ -8,6 +8,7 @@
 #import "DetailsViewController.h"
 #import "AppDelegate.h"
 #import "Utility.h"
+#import <QuartzCore/QuartzCore.h>
 
 typedef enum { SectionHeader, SectionButtons, SectionTimetable } Sections;
 
@@ -109,6 +110,10 @@ typedef enum { SectionHeader, SectionButtons, SectionTimetable } Sections;
     [self.favoritesButton setBackgroundImage:resizableGreenButtonHighlighted forState:UIControlStateHighlighted];
     
     [self.mapView setRegion:MKCoordinateRegionMake(CLLocationCoordinate2DMake(55.033333, 82.916667), MKCoordinateSpanMake(0.5, 0.5))];
+    
+    self.mapView.layer.borderColor = [UIColor darkGrayColor].CGColor;
+    self.mapView.layer.borderWidth = 1.0;
+    self.mapView.layer.cornerRadius = 8.0;
 }
 
 - (void)refreshControls { 
