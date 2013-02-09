@@ -45,14 +45,14 @@ typedef enum { SectionHeader, SectionButtons, SectionTimetable } Sections;
 {
     [(NGTDataSource *)self.transport.transportDataSource cancelAllConnections];
     self.mapView.delegate = nil;
-    [self.transport release];
-    [self.icon release];
-    [self.numberLabel release];
-    [self.stopALabel release];
-    [self.stopBLabel release];
-    [self.countLabel release];
-    [self.favoritesButton release];
-    [self.addToMapButton release];
+    self.transport = nil;
+    self.icon = nil;
+    self.numberLabel = nil;
+    self.stopALabel = nil;
+    self.stopBLabel = nil;
+    self.countLabel = nil;
+    self.favoritesButton = nil;
+    self.addToMapButton = nil;
     [super dealloc];
 }
 
@@ -162,10 +162,10 @@ typedef enum { SectionHeader, SectionButtons, SectionTimetable } Sections;
 		MKPolylineView *polylineView = [[MKPolylineView alloc] initWithPolyline:overlay];
 		polylineView.strokeColor = [UIColor colorWithRed:0.98 green:0.49 blue:0.25 alpha:1.0];
 		polylineView.lineWidth = 10;
-		return polylineView;
+		return [polylineView autorelease];
 	}
 	
-	return [[MKOverlayView alloc] initWithOverlay:overlay];	
+	return [[[MKOverlayView alloc] initWithOverlay:overlay] autorelease];	
 }
 
 @end

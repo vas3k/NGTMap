@@ -214,12 +214,10 @@ const float DEFAULT_LON = 82.916667;
 
 - (IBAction)clearRoute:(id)sender
 {
-    if (self.route)
-    {
+    if (self.route) {
         [self.mapView removeOverlays:self.route.polylines];
-        [self.route release];
+        self.route = nil;
     }
-    self.route = nil;
     [self.removeRouteButton setHidden:YES];
     [self.mapView removeAnnotations:self.mapView.annotations];
     [self updateTransport:self];
@@ -240,29 +238,28 @@ const float DEFAULT_LON = 82.916667;
     [self.detailsView setHidden:YES];
 }
 
-- (void)dealloc
-{
+- (void)dealloc {
     self.mapView.delegate = nil;
-    [self.refreshButton release];
-    [self.locationButton release];
+    self.refreshButton = nil;
+    self.locationButton = nil;
     [self.locationManager stopUpdatingLocation];
-    [self.locationManager release];
+    self.locationManager = nil;
     [self.updateTimer invalidate];
-    [self.updateTimer release];
-    [self.route release];
+    self.updateTimer = nil;
+    self.route = nil;
     [super dealloc];
 }
 
 #pragma mark - View lifecycle
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Карта";
     [self.detailsView setHidden:YES];
     
     // Настроить геопозиционирование    
     self.locationManager = [[CLLocationManager alloc] init];
+    [self.locationManager release]; //this property has retain attribute, so at this point it's retainCount will be 2 instead of 1
     self.locationManager.delegate = self;
     [self.locationManager startUpdatingLocation];
         
@@ -319,7 +316,7 @@ const float DEFAULT_LON = 82.916667;
         MKAnnotationView *annotationView = [amapView dequeueReusableAnnotationViewWithIdentifier:annotationId];
         if (!annotationView)
         {        
-            annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:annotationId];
+            annotationView = [[[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:annotationId] autorelease];
         }
         
         // Отображаем кастомные иконки и поворачиваем по азимуту
@@ -336,7 +333,7 @@ const float DEFAULT_LON = 82.916667;
         // Для всех остальных аннотаций - простой пин
         MKPinAnnotationView *annView = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"defaultPin"];
         if(!annView){
-            annView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"defaultPin"];
+            annView = [[[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"defaultPin"] autorelease];
         }
         
         annView.animatesDrop = YES;
@@ -381,16 +378,16 @@ const float DEFAULT_LON = 82.916667;
 		polylineView.strokeColor = [okColors objectAtIndex:colorId];
         colorId = (colorId + 1) % [okColors count];
 		polylineView.lineWidth = 15;
-		return polylineView;
+		return [polylineView autorelease];
     } else if ([overlay isKindOfClass:[MKPolyline class]])
     {
 		MKPolylineView *polylineView = [[MKPolylineView alloc] initWithPolyline:overlay];
 		polylineView.strokeColor = [UIColor colorWithRed:1.0 green:0.49 blue:0.25 alpha:1.0];
 		polylineView.lineWidth = 8;
-		return polylineView;
+		return [polylineView autorelease];
 	}
 	
-	return [[MKOverlayView alloc] initWithOverlay:overlay];
+	return [[[MKOverlayView alloc] initWithOverlay:overlay] autorelease];
 }
 
 

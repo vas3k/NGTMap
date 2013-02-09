@@ -34,10 +34,10 @@
     }
 }
 
-- (IBAction)donate:(id)sender
-{
+- (IBAction)donate:(id)sender {
     NSURL *url = [[NSURL alloc] initWithString:@"http://vas3k.ru/donate/"];
     [[UIApplication sharedApplication] openURL:url];
+    [url release];
 }
 
 #pragma mark - View lifecycle

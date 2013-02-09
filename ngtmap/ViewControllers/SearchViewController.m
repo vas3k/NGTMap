@@ -43,9 +43,8 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void)dealloc
-{
-    [self.transportDataSource release];  
+- (void)dealloc {
+    self.transportDataSource = nil;  
     [super dealloc];
 }
 

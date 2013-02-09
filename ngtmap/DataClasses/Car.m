@@ -74,13 +74,12 @@
     return [NSString stringWithFormat:@"%@", self.transport];
 }
 
-- (void)dealloc
-{
-    [self.timetable release];
-    [self.timetableNearPoint release];
-    [self.timetableNearTime release];
-    [self.speed release];
-    [self.transport release];
+- (void)dealloc {
+    self.timetable = nil;
+    self.timetableNearPoint = nil;
+    self.timetableNearTime = nil;
+    self.speed = nil;
+    self.transport = nil;
     [super dealloc];
 }
 
