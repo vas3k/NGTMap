@@ -5,6 +5,7 @@
 //  Created by vas3k on 12.02.12.
 //
 
+#import <Crashlytics/Crashlytics.h>
 #import "AppDelegate.h"
 @implementation AppDelegate
 
@@ -44,6 +45,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [Crashlytics startWithAPIKey:@"406ae1ba89d9e2e26813c2571b1692553d7f1562"];
+    
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];        
     
     // Контроллер поиска
