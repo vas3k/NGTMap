@@ -14,6 +14,7 @@
 		710054A716B2EC1800E33187 /* icon114.png in Resources */ = {isa = PBXBuildFile; fileRef = 710054A216B2EC1800E33187 /* icon114.png */; };
 		715E6CCC16BE6D1600094B38 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 715E6CCB16BE6D1600094B38 /* Utility.m */; };
 		71EDAC9C16C5668A006FC880 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71EDAC9B16C5668A006FC880 /* QuartzCore.framework */; };
+		7307496C16CD17420024330B /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7307496B16CD17420024330B /* Crashlytics.framework */; };
 		730B95DA16A28259007105BB /* RoutesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 730B95D816A28259007105BB /* RoutesViewController.m */; };
 		730B95DB16A28259007105BB /* RoutesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 730B95D916A28259007105BB /* RoutesViewController.xib */; };
 		730B95DF16A287F2007105BB /* routes.png in Resources */ = {isa = PBXBuildFile; fileRef = 730B95DE16A287F2007105BB /* routes.png */; };
@@ -107,6 +108,7 @@
 		715E6CCB16BE6D1600094B38 /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
 		71A159C316B0331B0021061A /* TODO */ = {isa = PBXFileReference; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
 		71EDAC9B16C5668A006FC880 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		7307496B16CD17420024330B /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		730B95D716A28259007105BB /* RoutesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RoutesViewController.h; path = ViewControllers/RoutesViewController.h; sourceTree = "<group>"; };
 		730B95D816A28259007105BB /* RoutesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RoutesViewController.m; path = ViewControllers/RoutesViewController.m; sourceTree = "<group>"; };
 		730B95D916A28259007105BB /* RoutesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RoutesViewController.xib; path = ViewControllers/RoutesViewController.xib; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				736C004314E81351005D6503 /* UIKit.framework in Frameworks */,
 				736C004514E81351005D6503 /* Foundation.framework in Frameworks */,
 				736C004714E81351005D6503 /* CoreGraphics.framework in Frameworks */,
+				7307496C16CD17420024330B /* Crashlytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,6 +392,7 @@
 			isa = PBXGroup;
 			children = (
 				71EDAC9B16C5668A006FC880 /* QuartzCore.framework */,
+				7307496B16CD17420024330B /* Crashlytics.framework */,
 				738F7CDC1622AF420024457A /* StoreKit.framework */,
 				733B0F8A14F021BE004E01BD /* SystemConfiguration.framework */,
 				7310584414ECEF6E00F984A8 /* CoreLocation.framework */,
@@ -553,6 +557,7 @@
 				736C003A14E81351005D6503 /* Sources */,
 				736C003B14E81351005D6503 /* Frameworks */,
 				736C003C14E81351005D6503 /* Resources */,
+				7307496A16CD17080024330B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -660,6 +665,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7307496A16CD17080024330B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Crashlytics.framework/run 406ae1ba89d9e2e26813c2571b1692553d7f1562";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		736C003A14E81351005D6503 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -758,6 +779,10 @@
 				);
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ngtmap/ngtmap-Prefix.pch";
 				GCC_WARN_UNUSED_VALUE = NO;
@@ -782,6 +807,10 @@
 				);
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ngtmap/ngtmap-Prefix.pch";
 				GCC_WARN_UNUSED_VALUE = NO;
