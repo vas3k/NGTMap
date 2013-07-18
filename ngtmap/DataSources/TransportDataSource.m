@@ -89,10 +89,9 @@
     return;
 }
 
-- (void)dealloc
-{
-    [self.transportList release];
-    [self.filteredTransportList release];
+- (void)dealloc {
+    self.transportList = nil;
+    self.filteredTransportList = nil;
     [super dealloc];
 }
 

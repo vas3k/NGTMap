@@ -105,13 +105,12 @@
     return [NSString stringWithFormat:@"Type: %@, number: %@, id: %@", type, number, identificator];
 }
 
-- (void)dealloc
-{
-    [self.transportDataSource release];
-    [self.cars release];
-    [self.type release];
-    [self.number release];
-    [self.lastUpdate release];
+- (void)dealloc {
+    self.transportDataSource = nil;
+    self.cars = nil;
+    self.type = nil;
+    self.number = nil;
+    self.lastUpdate = nil;
     [super dealloc];
 }
 

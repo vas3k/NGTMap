@@ -24,6 +24,12 @@
     return self;
 }
 
+- (void)dealloc {
+    self.favoritesNgtObjects = nil;
+    self.favoritesNgtStrings = nil;
+    [super dealloc];
+}
+
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
@@ -72,25 +78,6 @@
     
 }
 
-- (void)dealloc
-{
-    [self.favoritesNgtObjects release];
-    [self.favoritesNgtStrings release];
-    [super dealloc];
-}
-
-#pragma mark - View lifecycle
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-}
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
@@ -131,9 +118,6 @@
     }    
     [(UITableView *)self.view reloadData];
 }
-
-
-
 
 
 #pragma mark -
@@ -184,9 +168,6 @@
                                          animated:YES];
     [detailsViewController release];  
 }
-
-
-
 
 
 @end

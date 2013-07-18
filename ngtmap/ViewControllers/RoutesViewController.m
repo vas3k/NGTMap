@@ -8,6 +8,7 @@
 
 #import "RoutesViewController.h"
 #import "AppDelegate.h"
+#import "Utility.h"
 
 @implementation RoutesViewController
 
@@ -49,21 +50,17 @@
     self.locationManager.delegate = self;
     [self.locationManager startUpdatingLocation];
     
+    UIImage *resizableWhiteButton = [Utility resizableImageNamed:@"button_white.png"];
+    UIImage *resizableWhiteButtonHighlighted = [Utility resizableImageNamed:@"button_white_press.png"];
+    [self.startButton setBackgroundImage:resizableWhiteButton forState:UIControlStateNormal];
+    [self.startButton setBackgroundImage:resizableWhiteButtonHighlighted forState:UIControlStateHighlighted];
+    [self.stopButton setBackgroundImage:resizableWhiteButton forState:UIControlStateNormal];
+    [self.stopButton setBackgroundImage:resizableWhiteButtonHighlighted forState:UIControlStateHighlighted];
     
-    float version = [[[UIDevice currentDevice] systemVersion] floatValue];
-    if (version >= 5.0){
-        UIImage *resizableWhiteButton = [[UIImage imageNamed:@"button_white.png" ] resizableImageWithCapInsets:UIEdgeInsetsMake(15, 5, 15, 5)];
-        UIImage *resizableWhiteButtonHighlighted = [[UIImage imageNamed:@"button_white_press.png" ] resizableImageWithCapInsets:UIEdgeInsetsMake(15, 5, 15, 5)];
-        [self.startButton setBackgroundImage:resizableWhiteButton forState:UIControlStateNormal];
-        [self.startButton setBackgroundImage:resizableWhiteButtonHighlighted forState:UIControlStateHighlighted];
-        [self.stopButton setBackgroundImage:resizableWhiteButton forState:UIControlStateNormal];
-        [self.stopButton setBackgroundImage:resizableWhiteButtonHighlighted forState:UIControlStateHighlighted];
-        
-        UIImage *resizableGreenButton = [[UIImage imageNamed:@"button_green.png" ] resizableImageWithCapInsets:UIEdgeInsetsMake(15, 5, 15, 5)];
-        UIImage *resizableGreenButtonHighlighted = [[UIImage imageNamed:@"button_green_press.png" ] resizableImageWithCapInsets:UIEdgeInsetsMake(15, 5, 15, 5)];
-        [self.searchButton setBackgroundImage:resizableGreenButton forState:UIControlStateNormal];
-        [self.searchButton setBackgroundImage:resizableGreenButtonHighlighted forState:UIControlStateHighlighted];
-    }
+    UIImage *resizableGreenButton = [Utility resizableImageNamed:@"button_green.png"];
+    UIImage *resizableGreenButtonHighlighted = [Utility resizableImageNamed:@"button_green_press.png"];
+    [self.searchButton setBackgroundImage:resizableGreenButton forState:UIControlStateNormal];
+    [self.searchButton setBackgroundImage:resizableGreenButtonHighlighted forState:UIControlStateHighlighted];
     [self.activityIndicator stopAnimating];
 }
 
@@ -252,8 +249,8 @@
     startCoordinates = theStartCoordinates;
     
     [self.startButton setTitle:@"Выбранной начальной точки" forState:UIControlStateNormal];
-    UIImage *resizableYellowButton = [[UIImage imageNamed:@"button_yellow.png" ] resizableImageWithCapInsets:UIEdgeInsetsMake(15, 5, 15, 5)];
-    UIImage *resizableYellowButtonHighlighted = [[UIImage imageNamed:@"button_yellow_press.png" ] resizableImageWithCapInsets:UIEdgeInsetsMake(15, 5, 15, 5)];
+    UIImage *resizableYellowButton = [Utility resizableImageNamed:@"button_yellow.png"];
+    UIImage *resizableYellowButtonHighlighted = [Utility resizableImageNamed:@"button_yellow_press.png"];
     [self.startButton setBackgroundImage:resizableYellowButton forState:UIControlStateNormal];
     [self.startButton setBackgroundImage:resizableYellowButtonHighlighted forState:UIControlStateHighlighted];
 }
@@ -263,8 +260,8 @@
     stopCoordinates = theStopCoordinates;
     
     [self.stopButton setTitle:@"Выбранной конечной точки" forState:UIControlStateNormal];
-    UIImage *resizableYellowButton = [[UIImage imageNamed:@"button_yellow.png" ] resizableImageWithCapInsets:UIEdgeInsetsMake(15, 5, 15, 5)];
-    UIImage *resizableYellowButtonHighlighted = [[UIImage imageNamed:@"button_yellow_press.png" ] resizableImageWithCapInsets:UIEdgeInsetsMake(15, 5, 15, 5)];
+    UIImage *resizableYellowButton = [Utility resizableImageNamed:@"button_yellow.png"];
+    UIImage *resizableYellowButtonHighlighted = [Utility resizableImageNamed:@"button_yellow_press.png"];
     [self.stopButton setBackgroundImage:resizableYellowButton forState:UIControlStateNormal];
     [self.stopButton setBackgroundImage:resizableYellowButtonHighlighted forState:UIControlStateHighlighted];
 }
@@ -278,8 +275,8 @@
     
     
     [self.startButton setTitle:@"Моего местоположения" forState:UIControlStateNormal];
-    UIImage *resizableYellowButton = [[UIImage imageNamed:@"button_yellow.png" ] resizableImageWithCapInsets:UIEdgeInsetsMake(15, 5, 15, 5)];
-    UIImage *resizableYellowButtonHighlighted = [[UIImage imageNamed:@"button_yellow_press.png" ] resizableImageWithCapInsets:UIEdgeInsetsMake(15, 5, 15, 5)];
+    UIImage *resizableYellowButton = [Utility resizableImageNamed:@"button_yellow.png"];
+    UIImage *resizableYellowButtonHighlighted = [Utility resizableImageNamed:@"button_yellow_press.png"];
     [self.startButton setBackgroundImage:resizableYellowButton forState:UIControlStateNormal];
     [self.startButton setBackgroundImage:resizableYellowButtonHighlighted forState:UIControlStateHighlighted];
 }
