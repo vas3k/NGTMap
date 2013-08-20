@@ -16,10 +16,9 @@
 @synthesize favoritesViewController = _favoritesViewController;
 @synthesize routesViewController = _routesViewController;
 
-- (id)init
-{
-    if (self == [super init])
-    {
+- (id)init {
+    self = [super init];
+    if (self != nil ) {
         float version = [[[UIDevice currentDevice] systemVersion] floatValue];
         if (version >= 5.0) //following code available on iOS 5.0 and above, but I have old iPod 2gen with iOS 4.2..
         {
@@ -92,7 +91,6 @@
     
     // И отображаем
     self.window.rootViewController = _tabBarController;
-    [self.window addSubview:_tabBarController.view];
     [self.window makeKeyAndVisible];
     return YES;
 }

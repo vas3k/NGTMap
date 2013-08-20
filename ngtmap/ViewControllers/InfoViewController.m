@@ -26,15 +26,18 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
-- (IBAction)hideMe
-{
-    [self dismissViewControllerAnimated:YES completion:nil];
+- (IBAction)hideMe {
+    if ([self respondsToSelector:@selector(dismissViewControllerAnimated:completion:)]){
+        [self dismissViewControllerAnimated:YES completion:nil];        
+    } else {
+        [self dismissModalViewControllerAnimated:YES];
+    }
 }
 
-- (IBAction)donate:(id)sender
-{
+- (IBAction)donate:(id)sender {
     NSURL *url = [[NSURL alloc] initWithString:@"http://vas3k.ru/donate/"];
     [[UIApplication sharedApplication] openURL:url];
+    [url release];
 }
 
 #pragma mark - View lifecycle

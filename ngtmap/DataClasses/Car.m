@@ -22,9 +22,9 @@
     {
         self.transport = [dictionary valueForKey:@"transport"];
         self.timetable = [dictionary valueForKey:@"timetable"];
-        self.azimuth = [[dictionary valueForKey:@"azimuth"] floatValue];
+        self.azimuth = - [[dictionary valueForKey:@"azimuth"] floatValue];
         self.speed = [dictionary valueForKey:@"speed"];
-        icon = [UIImage imageNamed:[NSString stringWithFormat:@"Bus_arrow-%d.png", [self normalizeAzimuth:self.azimuth]]];
+        icon = [UIImage imageNamed:@"Bus_arrow-0.png"];
 
         // Определение ближайшей остановки
         NSUInteger splitterPos = [self.timetable rangeOfString:@"|"].location;
@@ -74,13 +74,12 @@
     return [NSString stringWithFormat:@"%@", self.transport];
 }
 
-- (void)dealloc
-{
-    [self.timetable release];
-    [self.timetableNearPoint release];
-    [self.timetableNearTime release];
-    [self.speed release];
-    [self.transport release];
+- (void)dealloc {
+    self.timetable = nil;
+    self.timetableNearPoint = nil;
+    self.timetableNearTime = nil;
+    self.speed = nil;
+    self.transport = nil;
     [super dealloc];
 }
 

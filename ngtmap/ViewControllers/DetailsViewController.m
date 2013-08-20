@@ -7,6 +7,8 @@
 
 #import "DetailsViewController.h"
 #import "AppDelegate.h"
+#import "Utility.h"
+#import <QuartzCore/QuartzCore.h>
 
 typedef enum { SectionHeader, SectionButtons, SectionTimetable } Sections;
 
@@ -43,14 +45,14 @@ typedef enum { SectionHeader, SectionButtons, SectionTimetable } Sections;
 {
     [(NGTDataSource *)self.transport.transportDataSource cancelAllConnections];
     self.mapView.delegate = nil;
-    [self.transport release];
-    [self.icon release];
-    [self.numberLabel release];
-    [self.stopALabel release];
-    [self.stopBLabel release];
-    [self.countLabel release];
-    [self.favoritesButton release];
-    [self.addToMapButton release];
+    self.transport = nil;
+    self.icon = nil;
+    self.numberLabel = nil;
+    self.stopALabel = nil;
+    self.stopBLabel = nil;
+    self.countLabel = nil;
+    self.favoritesButton = nil;
+    self.addToMapButton = nil;
     [super dealloc];
 }
 
@@ -78,8 +80,7 @@ typedef enum { SectionHeader, SectionButtons, SectionTimetable } Sections;
 
 - (void)trassesLoaded:(Transport *)transport
 {
-    if (self.mapView != nil)
-    {
+    if (self.mapView != nil && self.transport.routeLine.pointCount > 0 ) {
         [self.mapView removeOverlays:self.mapView.overlays];
         [self.mapView addOverlay:self.transport.routeLine];
         
@@ -87,17 +88,9 @@ typedef enum { SectionHeader, SectionButtons, SectionTimetable } Sections;
         MKMapRect mapRect = MKMapRectNull;
         mapRect = ((id<MKOverlay>)self.mapView.overlays.lastObject).boundingMapRect;
         
-        //Inset
-        CGFloat inset = (CGFloat)(mapRect.size.width * 0.1);
-        mapRect = [self.mapView mapRectThatFits:MKMapRectInset(mapRect, inset, inset)];
-        
         //Set
         MKCoordinateRegion region = MKCoordinateRegionForMapRect(mapRect);
-        if ((region.center.latitude >= -90) && (region.center.latitude <= 90) &&
-            (region.center.longitude >= -180) && (region.center.longitude <= 180))
-        {
-                [self.mapView setRegion:region animated:YES];
-        }
+        [self.mapView setRegion:region animated:YES];
     }
 }
 
@@ -107,27 +100,24 @@ typedef enum { SectionHeader, SectionButtons, SectionTimetable } Sections;
 {
     [super viewDidLoad];
     
-    float version = [[[UIDevice currentDevice] systemVersion] floatValue];
-    if (version >= 5.0) {
-        // Разукрасим кнопочки
-        UIImage *resizableGreenButton = [[UIImage imageNamed:@"button_green.png" ] resizableImageWithCapInsets:UIEdgeInsetsMake(15, 5, 15, 5)];
-        UIImage *resizableGreenButtonHighlighted = [[UIImage imageNamed:@"button_green_press.png" ] resizableImageWithCapInsets:UIEdgeInsetsMake(15, 5, 15, 5)];
-        [self.addToMapButton setBackgroundImage:resizableGreenButton forState:UIControlStateNormal];
-        [self.addToMapButton setBackgroundImage:resizableGreenButtonHighlighted forState:UIControlStateHighlighted];
-        [self.favoritesButton setBackgroundImage:resizableGreenButton forState:UIControlStateNormal];
-        [self.favoritesButton setBackgroundImage:resizableGreenButtonHighlighted forState:UIControlStateHighlighted];
-    }
+    // Разукрасим кнопочки
+    UIImage *resizableGreenButton = [Utility resizableImageNamed:@"button_green.png"];
+    UIImage *resizableGreenButtonHighlighted = [Utility resizableImageNamed:@"button_green_press.png"];
+    
+    [self.addToMapButton setBackgroundImage:resizableGreenButton forState:UIControlStateNormal];
+    [self.addToMapButton setBackgroundImage:resizableGreenButtonHighlighted forState:UIControlStateHighlighted];
+    [self.favoritesButton setBackgroundImage:resizableGreenButton forState:UIControlStateNormal];
+    [self.favoritesButton setBackgroundImage:resizableGreenButtonHighlighted forState:UIControlStateHighlighted];
     
     [self.mapView setRegion:MKCoordinateRegionMake(CLLocationCoordinate2DMake(55.033333, 82.916667), MKCoordinateSpanMake(0.5, 0.5))];
+    
+    self.mapView.layer.borderColor = [UIColor darkGrayColor].CGColor;
+    self.mapView.layer.borderWidth = 1.0;
+    self.mapView.layer.cornerRadius = 8.0;
 }
 
-- (void)refreshControls {
-    if (self.transport) { 
-        self.title = [[NSString stringWithFormat:@"%@ %@", self.transport.canonicalType, self.transport.number] capitalizedString];
-    } else { //vas3k, what is this? where it is used? // уже не актуально, ага
-        self.title = @"Подробности";
-    }
-    
+- (void)refreshControls { 
+    self.title = [[NSString stringWithFormat:@"%@ %@", self.transport.canonicalType, self.transport.number] capitalizedString];
     icon.image = transport.detailsIcon;
     numberLabel.text = transport.number;
     stopALabel.text = [transport.stopA capitalizedString];
@@ -172,10 +162,10 @@ typedef enum { SectionHeader, SectionButtons, SectionTimetable } Sections;
 		MKPolylineView *polylineView = [[MKPolylineView alloc] initWithPolyline:overlay];
 		polylineView.strokeColor = [UIColor colorWithRed:0.98 green:0.49 blue:0.25 alpha:1.0];
 		polylineView.lineWidth = 10;
-		return polylineView;
+		return [polylineView autorelease];
 	}
 	
-	return [[MKOverlayView alloc] initWithOverlay:overlay];	
+	return [[[MKOverlayView alloc] initWithOverlay:overlay] autorelease];	
 }
 
 @end
